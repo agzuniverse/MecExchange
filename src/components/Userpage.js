@@ -4,13 +4,16 @@ import { connect } from 'react-redux';
 import { readFromStorage } from '../firebase/firebase';
 import SideMenu from './SideMenu';
 import ProductDiv from './ProductDiv';
+import CircularProgress from 'material-ui/CircularProgress';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class Userpage extends Component{
 
     constructor(props){
         super(props);
         this.state={
-            bookData:{}
+            bookData:{},
+            loaded:false
         }
     }
 
@@ -36,30 +39,40 @@ class Userpage extends Component{
         var bookData = await readFromStorage(uid);
         console.log(bookData);
         this.setState({
-            bookData:bookData
+            bookData:bookData,
+            loaded:true
         });
     }
     
-    render(){
-        const books = Object.keys(this.state.bookData).map(key => { 
-            console.log(this.state.bookData[key],key);
-            return(
-                <ProductDiv details={this.state.bookData[key]}/>
-            
+    render() {
+        const books = Object.keys(this.state.bookData).map(key => {
+            console.log(this.state.bookData[key], key);
+            return (
+                <ProductDiv details={this.state.bookData[key]} />
+
             );
         });
 
-        if(this.props.uid !== '' && this.props.uid !== null)
-            return(
+
+        if (this.props.uid !== '' && this.props.uid !== null)
+            return (
                 <div className="App">
                     <SideMenu isFilter={false} userDetails={this.props} />
                     <div className="mainDiv">
-                        {books}
+                        {this.state.loaded ? books :
+                            <div id="loading">
+                                <GetAuthDetails />
+                                <MuiThemeProvider>
+                                    <CircularProgress size={200} thickness={9} />
+                                </MuiThemeProvider>
+                            </div>}
+
                     </div>
                 </div>
             );
         else
             return <h1>403 Forbidden</h1>
+
     }
 }
 

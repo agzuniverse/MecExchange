@@ -1,3 +1,200 @@
+<<<<<<< HEAD
+#App{
+    overflow: hidden;
+}
+
+.Container{
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+.topWrapper{
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('img/night2.jpg');
+    background-size: cover;
+    overflow: hidden;
+}
+
+#head{
+    color: white;
+    width: 22.5%;
+    position: absolute;
+    top: 20%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 43px;
+}   
+#watch{
+    color: #00c853 ;
+}
+
+#input{
+    height: 3.9%;
+    width: 40%;
+    position: absolute;
+    top: 31%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-color: white;
+    color: black;
+    font-size: 17px;
+    border-radius: 17px;
+    text-indent: 5%;
+    padding: 3px;
+}    
+
+#tagLine{
+    color: white;
+    font-size: 21px;
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    top: 40.5%;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+#bottom{
+    color: white;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 8%;
+    left: 0;
+    right: 0;
+    margin: auto;
+    font-size: 17px;
+}
+
+footer{
+    background-color: #070707 ;
+    height: 15vh;
+    width: 100%;
+    text-align: center;
+    color: whitesmoke;
+    font-size: 20px;
+    padding-top: 2em;
+    position: relative;
+    bottom: 0;
+
+}
+
+ .mainBackground{
+    background:rgb(4, 47, 78);
+    
+ }
+ .mainColor{
+     color:rgba(255,255,255,0.87);
+ }
+ .App{
+     width: 100vw;
+     height: 100vh;
+     padding: 0px;
+     margin: 0px;
+     display: grid;
+     grid-template-columns: 230px 1fr;
+     grid-template-rows: 1fr;
+ }
+
+ .SideMenu{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 6fr 3fr;
+    padding:20px 10px;
+    text-align: center;
+    grid-row: 1/2
+ }
+ .logo{
+    float: left;
+    text-decoration: none;
+    text-align: center;
+    color: rgba(255,255,255,0.87);
+    font-size: 35px; 
+    line-height: 25px;
+}
+#watchPart{
+    color:lawngreen;
+}
+.dropDownMenu{
+    width: 200px;
+}
+ 
+.linksDiv{
+    align-self: end;
+ }
+#loading{
+    text-align: center;
+    padding-top:10%;
+}
+#loading2{
+    text-align: center;
+    padding-top:25%;
+}
+ .mainDiv{
+    margin: 0px;
+    padding: 0px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr repeat(5fr);
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+}
+#searchDiv{
+    height: 30px;
+    padding:10px;
+    text-align: center;
+}
+#input2{
+    height: 80%;
+    width: 90%;
+    background-color: white;
+    color: black;
+    font-size: 17px;
+    border-radius: 17px;
+    text-indent: 5%;
+    padding: 3px;
+}
+.ProductDiv{
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    min-height: 250px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    margin:15px;
+    transition: 0.3s;
+}
+.ProductDiv:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    margin:5px;
+}
+.imgDiv{
+    padding: 10px;
+    
+}
+#productImg{
+    max-width: 100%;
+    max-height: 100%;
+}
+.infoDiv{
+    padding: 10px;
+}
+#price{
+   color: #00c853;
+   font-size: 20px;
+}
+#bookName{
+   font-size: 25px;
+}
+#author{
+   font-size: 20px;
+}
+ /*.SideMenu{
+=======
 #App {
   overflow: hidden;
 }
@@ -191,6 +388,7 @@ footer {
   font-size: 20px;
 }
 /*.SideMenu{
+>>>>>>> 030f83bab8e2655d0c8c94087e15c631f5d28361
     position: fixed;
     height:100%;
     width: 15%;
@@ -838,10 +1036,17 @@ footer {
   border-radius: 50%;
 }
 
+<<<<<<< HEAD
+.credit-devs a:hover >img{
+    filter:none;
+    transform: scale(1.25);
+    
+=======
 .credit-devs a img {
   widows: 100%;
   filter: grayscale(100%);
   transition: 0.4s all;
+>>>>>>> 030f83bab8e2655d0c8c94087e15c631f5d28361
 }
 
 .credit-devs a:hover > img {

@@ -28,7 +28,7 @@ export function addToStorage(file, data) {
 
     storageAdd.put(file).then(snapshot => {
       data.imageURL = snapshot.downloadURL;
-      console.log(data);
+      //console.log(data);
 
       const database = firebase.database();
       database
@@ -69,7 +69,7 @@ export function searchAll(query) {
               if (data[i][j].tags[tag].toLowerCase().includes(query)) {
                 flag = true;
                 for (const k in results) {
-                  if (results[k] == data[i][j]) {
+                  if (results[k] === data[i][j]) {
                     flag = false;
                   }
                 }

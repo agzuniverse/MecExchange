@@ -42,7 +42,7 @@ class Credits extends React.Component {
         sub: "Back End",
         githubID: "https://github.com/123vivekr",
         avatar:
-          "https://lh5.googleusercontent.com/PrhjpLoNw-QynOGbSv0gqgbBbP0F78hz-IbK8KukbtOoKKXgdt4AkbegomKQLW6GLuUm35ie1Oxzggz78x7I=w1366-h656",
+          "https://avatars3.githubusercontent.com/u/28249428?s=400&v=4",
         desc: "Problem solver, programmer, gamer and fitness enthusiast",
         gitName: "123vivekr"
       }

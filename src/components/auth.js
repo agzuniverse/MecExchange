@@ -1,11 +1,11 @@
-import firebase, { auth, provider } from "../firebase/firebase";
+import { auth, provider } from "../firebase/firebase";
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { withRouter } from "react-router";
-import Userpage from "./Userpage";
+//import Userpage from "./Userpage";
 import GetAuthDetails from "./GetAuthDetails";
-import Appbar from "./appBar";
+//import Appbar from "./appBar";
 
 class Auth extends React.Component {
   constructor(props) {

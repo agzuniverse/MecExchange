@@ -2,14 +2,6 @@ import React, { Component } from "react";
 import "../App.css";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
-import RaisedButton from "material-ui/RaisedButton";
-import FlatButton from "material-ui/FlatButton";
-import TextField from "material-ui/TextField";
-import AppBar from "material-ui/AppBar";
-import DropDownMenu from "material-ui/DropDownMenu";
-import MenuItem from "material-ui/MenuItem";
-import SideMenu from "../components/SideMenu";
 import GetAuthDetails from "./GetAuthDetails";
 
 class ProductDisplay extends Component {
@@ -54,7 +46,7 @@ class ProductDisplay extends Component {
 
             <div id="centerTotal">
               <div className="imageHolder">
-                <img id="textbook" src={this.props.location.state.imageURL} />
+                <img id="textbook" alt="TextBook" src={this.props.location.state.imageURL} />
               </div>
 
               <div className="detailCard">

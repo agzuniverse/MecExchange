@@ -1,5 +1,5 @@
 import React from "react";
-import "../App.css";
+import "../css/credits.css";
 import { FaEnvelope, FaGithub } from "react-icons/lib/fa";
 
 class Credits extends React.Component {
@@ -55,31 +55,34 @@ class Credits extends React.Component {
     </a>
   );
 
-  userDetails = dev => (
-    <div id={dev.name} className="credits-desc">
-      <span className="credits-name">{dev.name}</span>
-      <font size="2">
-        <center>{dev.sub}</center>
-      </font>
-      <span className="credit-sep" />
-      <p>{dev.desc}</p>
-      <b>Contact</b>
-      <br />
-      <FaEnvelope key={dev.email} /> {dev.email}
-      <br />
-      <FaGithub key={dev.githubID} />{" "}
-      <a href={dev.githubID} target="_blank" style={{ color: "#2ecc71" }}>
-        {dev.gitName}
-      </a>
-    </div>
-  );
+  userDetails = dev => {
+    return (
+      <div id={dev.name} className="credits-desc">
+        <span className="credits-name">{dev.name}</span>
+        <font size="2">
+          <center>{dev.sub}</center>
+        </font>
+        <span className="credit-sep" />
+        <p>{dev.desc}</p>
+        <b>Contact</b>
+        <br />
+        <FaEnvelope key={dev.email} /> {dev.email}
+        <br />
+        <FaGithub key={dev.githubID} />{" "}
+        <a href={dev.githubID} target="_blank" style={{ color: "#2ecc71" }}>
+          {dev.gitName}
+        </a>
+      </div>
+    );
+  };
 
   render() {
     return (
       <div className="credit-container">
+       <meta name="viewport" content="width=1024" />
         <a style={{ textDecoration: "none" }} href="/">
           <h2 id="credits-head">
-            Books<span id="credits-watch">Watch</span>
+            Books<span id="credits-watch">Watch</span>3
           </h2>
         </a>
         <h1 id="credits-aboutus">ABOUT US</h1>

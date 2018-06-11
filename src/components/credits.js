@@ -82,7 +82,7 @@ class Credits extends React.Component {
        <meta name="viewport" content="width=1024" />
         <a style={{ textDecoration: "none" }} href="/">
           <h2 id="credits-head">
-            Books<span id="credits-watch">Watch</span>3
+            Books<span id="credits-watch">Watch</span>
           </h2>
         </a>
         <h1 id="credits-aboutus">ABOUT US</h1>

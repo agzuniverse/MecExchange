@@ -85,7 +85,7 @@ class Auth extends React.Component {
         <GetAuthDetails />
         <div className="appbar">
           <Link to="/">
-            <a href="#" className="logo">
+            <a href="/" className="logo">
               Books<span id="watchPart">Watch</span>
             </a>
           </Link>

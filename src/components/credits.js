@@ -55,8 +55,7 @@ class Credits extends React.Component {
     </a>
   );
 
-  userDetails = dev => {
-    return (
+  userDetails = dev => (
       <div id={dev.name} className="credits-desc">
         <span className="credits-name">{dev.name}</span>
         <font size="2">
@@ -74,12 +73,11 @@ class Credits extends React.Component {
         </a>
       </div>
     );
-  };
 
   render() {
     return (
       <div className="credit-container">
-       <meta name="viewport" content="width=1024" />
+        <meta name="viewport" content="width=1024" />
         <a style={{ textDecoration: "none" }} href="/">
           <h2 id="credits-head">
             Books<span id="credits-watch">Watch</span>

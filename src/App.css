@@ -351,7 +351,8 @@ footer {
   left: 0;
   right: 0;
   margin: auto;
-  height: 84vh;
+  overflow-y: hidden;
+  height: 87.6vh;
   padding: 20px 0px 20px 0px;
   width: 85%;
   background-color: white;
@@ -420,7 +421,7 @@ footer {
 .imageHolder {
   background-color: rgb(236, 239, 241);
   width: 25%;
-  height: 75vh;
+  /* height: 75vh; */
   position: absolute;
   top: 18%;
   left: 15%;

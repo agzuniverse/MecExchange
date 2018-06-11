@@ -31,7 +31,7 @@ class ProductDisplay extends Component {
         {this.props.location.state ? (
           <div>
             <div className="appbar">
-              <a href="#" className="logo">
+              <a href="/" className="logo">
                 Books<span id="watchPart">Watch</span>
               </a>
               {!this.props.uid ? (

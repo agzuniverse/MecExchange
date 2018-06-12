@@ -56,22 +56,22 @@ class Credits extends React.Component {
   );
 
   userDetails = dev => (
-      <div id={dev.name} className="credits-desc">
-        <span className="credits-name">{dev.name}</span>
-        <font size="2">
-          <center>{dev.sub}</center>
-        </font>
-        <span className="credit-sep" />
-        <p>{dev.desc}</p>
-        <b>Contact</b>
-        <br />
-        <FaEnvelope key={dev.email} /> {dev.email}
-        <br />
-        <FaGithub key={dev.githubID} />{" "}
-        <a href={dev.githubID} target="_blank" style={{ color: "#2ecc71" }}>
-          {dev.gitName}
-        </a>
-      </div>
+    <div id={dev.name} className="credits-desc">
+      <span className="credits-name">{dev.name}</span>
+      <font size="2">
+        <center>{dev.sub}</center>
+      </font>
+      <span className="credit-sep" />
+      <p>{dev.desc}</p>
+      <b>Contact</b>
+      <br />
+      <FaEnvelope key={dev.email} /> {dev.email}
+      <br />
+      <FaGithub key={dev.githubID} />{" "}
+      <a href={dev.githubID} target="_blank" style={{ color: "#2ecc71" }}>
+        {dev.gitName}
+      </a>
+    </div>
     );
 
   render() {

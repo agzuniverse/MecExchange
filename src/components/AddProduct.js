@@ -152,7 +152,7 @@ class AddProduct extends Component {
     ];
     if (this.props.uid !== "" && this.props.uid !== null)
       return (
-        <div className="mainBackground sellWrapper">
+        <div className="mainBackground-addProductPage sellWrapper">
           <GetAuthDetails />
           <MuiThemeProvider>
             <div className="appbar">

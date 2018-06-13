@@ -85,6 +85,9 @@ footer {
 
 .mainBackground {
   background: rgb(4, 47, 78);
+}
+.mainBackground-addProductPage {
+  background: rgb(4, 47, 78);
   height: 100vh;
 }
 .mainColor {

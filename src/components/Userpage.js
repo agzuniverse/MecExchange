@@ -117,27 +117,23 @@ Userpage.propTypes = {
   updatePropic: PropTypes.func.isRequired
 };
 
-const mapStateToProps = (state) => (
-  {
-    uid: state.auth.uid
-  }
-);
+const mapStateToProps = state => ({
+  uid: state.auth.uid
+});
 
-const mapDispatchToProps = (dispatch) => (
-  {
-    updateUid: (uid) => {
-      dispatch(setGlobalUid(uid));
-    },
-    updateEmail: (email) => {
-      dispatch(setGlobalEmail(email));
-    },
-    updateName: (name) => {
-      dispatch(setGlobalName(name));
-    },
-    updatePropic: (propic) => {
-      dispatch(setGlobalProPic(propic));
-    }
+const mapDispatchToProps = dispatch => ({
+  updateUid: uid => {
+    dispatch(setGlobalUid(uid));
+  },
+  updateEmail: email => {
+    dispatch(setGlobalEmail(email));
+  },
+  updateName: name => {
+    dispatch(setGlobalName(name));
+  },
+  updatePropic: propic => {
+    dispatch(setGlobalProPic(propic));
   }
-);
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Userpage);

@@ -72,7 +72,7 @@ class Credits extends React.Component {
         {dev.gitName}
       </a>
     </div>
-    );
+  );
 
   render() {
     return (

@@ -18,9 +18,9 @@
 
 #head {
   color: white;
-  width: 22.5%;
+  width: 9em;
   position: absolute;
-  top: 20%;
+  top: 3.3em;
   left: 0;
   right: 0;
   margin: auto;
@@ -32,9 +32,9 @@
 
 #input {
   height: 3.9%;
-  width: 40%;
+  width: 32em;
   position: absolute;
-  top: 31%;
+  top: 13em;
   left: 0;
   right: 0;
   margin: auto;
@@ -53,7 +53,7 @@
   text-align: center;
   width: 100%;
   position: absolute;
-  top: 40.5%;
+  top: 13.5em;
   left: 0;
   right: 0;
   margin: auto;
@@ -351,8 +351,8 @@ footer {
   left: 0;
   right: 0;
   margin: auto;
-  overflow-y: hidden;
-  height: 87.6vh;
+  /* overflow-y: hidden; */
+  height: 85vh;
   padding: 20px 0px 20px 0px;
   width: 85%;
   background-color: white;
@@ -366,11 +366,11 @@ footer {
 
 #button {
   position: absolute;
-  right: 2em;
+  right: 5%;
   top: 2em;
   padding: 6px;
   font-size: 18px;
-  width: 8%;
+  width: 5em;
   background-color: #4caf50;
   color: white;
   border: none;
@@ -421,7 +421,7 @@ footer {
 .imageHolder {
   background-color: rgb(236, 239, 241);
   width: 25%;
-  /* height: 75vh; */
+  height: 75vh;
   position: absolute;
   top: 18%;
   left: 15%;
@@ -700,23 +700,28 @@ footer {
   .logo {
     display: none;
   }
-  .imageHolder {
+  #centerTotal{
+    height: 180vh;
+    width: 90%;
+  }
+
+  /*.imageHolder {
     height: 45%;
     width: 60%;
     left: 0%;
     top: 25%;
     right: 0;
     margin: auto;
-  }
+  }*/
 
   .details {
     display: none;
   }
 
   .detailCard {
-    top: 84%;
-    width: 60%;
-    height: 70%;
+    top: 42%;
+    width: 75%;
+    height: 26em;
     position: absolute;
     left: 0;
     right: 0;
@@ -754,10 +759,10 @@ footer {
   }
 
   #sellerInfoCard {
-    width: 75%;
-    height: 75%;
+    width: 90%;
+    height: 26em;
     position: absolute;
-    top: 82%;
+    top: 27em;
     left: 0;
     right: 0;
     margin: auto;
@@ -768,26 +773,32 @@ footer {
   }
 
   .imageHolder {
-    top: 20%;
-    width: 70%;
-    height: 55%;
+    top: 5em;
+    width: 80%;
+    height: 20em;
+    left: 0;
+    right: 0;
+    margin: auto;
   }
   footer {
     font-size: 17px;
   }
   #head {
-    width: 70%;
+    top: 4.8em;
+    width: 9em;
     font-size: 37px;
   }
   #tagLine {
-    top: 46%;
-    font-size: 18.5px;
+    width: 19em;
+    top: 17.9em;
+    font-size: 17px;
   }
   #bottom {
+    width: 22em;
     font-size: 14px;
   }
   #input {
-    top: 36%;
+    top: 14.3em;
     width: 80%;
   }
 
@@ -798,7 +809,7 @@ footer {
     height: 180vh;
   }
   .centerTotal {
-    height: 200vh;
+    height: 180vh;
   }
 }
 

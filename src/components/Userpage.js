@@ -8,7 +8,7 @@ import {
   setGlobalName,
   setGlobalProPic
 } from "../redux/ActionCreators";
-import { readFromStorage } from "../firebase/firebase";
+import { readFromStorage, searchUser } from "../firebase/firebase";
 import SideMenu from "./SideMenu";
 import ProductDiv from "./ProductDiv";
 import CircularProgress from "material-ui/CircularProgress";
@@ -48,10 +48,43 @@ class Userpage extends Component {
     });
   };
 
+  
+  performSearch = async query => {
+    console.log("performSearch");
+    this.setState({
+      loaded: false
+    });
+    console.log(query);
+    try {
+      const data = await searchUser(query,this.props.uid);
+      console.log(data);
+      this.setState({
+        searchResults:data,
+        loaded: true
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  search = e => {
+    console.log("search func");
+    e.preventDefault();
+    const query = document.getElementById("input2").value;
+    this.performSearch(query);
+  };
+
   render() {
-    const books = Object.keys(this.state.bookData).map(key => (
-      <ProductDiv details={this.state.bookData[key]} />
-    ));
+    let books = [];
+    if(this.state.searchResults){
+      books = this.state.searchResults.map(book => (
+        <ProductDiv details={book} />
+      ));
+    } else {
+      books = Object.keys(this.state.bookData).map(key => (
+        <ProductDiv details={this.state.bookData[key]} />
+      ));
+    }
 
     if (this.props.uid !== "" && this.props.uid !== null)
       return (
@@ -65,7 +98,7 @@ class Userpage extends Component {
               ) : (
                 <div id="loading">
                   <MuiThemeProvider>
-                    <CircularProgress size={200} thickness={9} />
+                    <CircularProgress size={50} thickness={5} />
                   </MuiThemeProvider>
                 </div>
               )}

@@ -106,6 +106,7 @@ footer {
   grid-template-rows: 1fr 6fr 3fr;
   padding: 20px 10px;
   text-align: center;
+  height: 100vh;
 }
 .logo {
   float: left;

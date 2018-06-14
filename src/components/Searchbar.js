@@ -11,6 +11,7 @@ function toggleSideMenu() {
   if (!sideMenu) {
     document.getElementsByClassName("App")[0].style.gridTemplateColumns =
       "230px 1fr";
+    document.getElementsByClassName("App")[0].style.gridTemplateRows = "1fr";
     document.getElementsByClassName("SideMenu")[0].style.display = "grid";
     document.getElementsByClassName("mainDiv")[0].style.overflow = "hidden";
     sideMenu = true;

@@ -48,6 +48,10 @@ class Userpage extends Component {
     });
   };
 
+<<<<<<< 2f11a012f8f2f1d57f251d4a81ff6f9b30acebfc
+=======
+  
+>>>>>>> Search func added to userpage
   performSearch = async query => {
     console.log("performSearch");
     this.setState({
@@ -55,10 +59,17 @@ class Userpage extends Component {
     });
     console.log(query);
     try {
+<<<<<<< 2f11a012f8f2f1d57f251d4a81ff6f9b30acebfc
       const data = await searchUser(query, this.props.uid);
       console.log(data);
       this.setState({
         searchResults: data,
+=======
+      const data = await searchUser(query,this.props.uid);
+      console.log(data);
+      this.setState({
+        searchResults:data,
+>>>>>>> Search func added to userpage
         loaded: true
       });
     } catch (err) {
@@ -75,7 +86,11 @@ class Userpage extends Component {
 
   render() {
     let books = [];
+<<<<<<< 2f11a012f8f2f1d57f251d4a81ff6f9b30acebfc
     if (this.state.searchResults) {
+=======
+    if(this.state.searchResults){
+>>>>>>> Search func added to userpage
       books = this.state.searchResults.map(book => (
         <ProductDiv details={book} />
       ));

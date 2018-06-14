@@ -97,7 +97,7 @@ class SideMenu extends Component {
                   </RaisedButton>
                 </Link>
               ) : (
-                <RaisedButton backgroundColor="lawngreen" fullWidth onClick={ this.login }>
+                <RaisedButton backgroundColor="lawngreen" fullWidth onClick={this.login}>
                   Sell Books
                 </RaisedButton>
               )}

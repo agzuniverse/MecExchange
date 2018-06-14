@@ -2,7 +2,6 @@ import { auth, provider } from "../firebase/firebase";
 import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import {
   setGlobalUid,
   setGlobalEmail,
@@ -120,7 +119,7 @@ Auth.propTypes = {
   updateName: PropTypes.func.isRequired,
   updatePropic: PropTypes.func.isRequired,
   testRedux: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired
+  // history: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({

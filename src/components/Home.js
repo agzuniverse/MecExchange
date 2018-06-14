@@ -48,14 +48,14 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  uid: PropTypes.string,
+  // uid: PropTypes.string,
   updateSearchString: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 };
 
-Home.defaultProps = {
-  uid: ""
-};
+// Home.defaultProps = {
+//   uid: ""
+// };
 
 const mapStateToProps = state => ({
   uid: state.auth.uid

@@ -112,6 +112,7 @@ footer {
   text-align: center;
   height: 100vh;
 }
+
 .logo {
   float: left;
   text-decoration: none;
@@ -123,6 +124,7 @@ footer {
 #watchPart {
   color: lawngreen;
 }
+
 .dropDownMenu {
   width: 200px;
 }
@@ -130,6 +132,7 @@ footer {
 .linksDiv {
   align-self: end;
 }
+
 #loading {
   text-align: center;
   padding-top: 10%;
@@ -373,10 +376,10 @@ footer {
   position: absolute;
   right: 5%;
   top: 2em;
-  padding: 6px;
+  padding-right: 50px;
   font-size: 18px;
-  width: 5em;
-  background-color: #4caf50;
+  width: 8%;
+  /* background-color: #4caf50; */
   color: white;
   border: none;
   border-radius: 5px;
@@ -575,12 +578,12 @@ footer {
 
 #logout {
   box-sizing: border-box;
-  position: absolute;
-  top: 39%;
+  /* position: absolute; */
+  /* top: 39%;
   left: 0;
-  right: 0;
+  right: 0; */
   margin: auto;
-  width: 13em;
+  width: 8em;
   height: 2.2em;
   text-align: center;
   font-size: 18px;

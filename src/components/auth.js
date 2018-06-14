@@ -36,6 +36,7 @@ class Auth extends React.Component {
   }
 
   logout = () => {
+    window.location = '/';
     auth.signOut().then(() => {
       this.setState({
         uid: "",
@@ -52,7 +53,7 @@ class Auth extends React.Component {
       this.props.updateEmail("");
       this.props.updatePropic("");
       console.log("Logout Successful");
-      this.props.history.push("/");
+      // this.props.history.push("/");
     });
   };
 
@@ -78,27 +79,21 @@ class Auth extends React.Component {
           localStorage.setItem("LOCAL_NAME", this.state.userName);
           localStorage.setItem("LOCAL_EMAIL", this.state.userEmail);
           localStorage.setItem("LOCAL_PROPIC", this.state.userProPic);
-          this.props.history.push("/user");
+          // this.props.history.push("/user");
         }
       );
       console.log("User has logged in");
-      this.props.history.push("/user");
+      window.location = '/user';
+      // this.props.history.push("/user");
     });
   };
 
   render() {
     return (
-      <div className="topWrapper">
+      <span>
         <GetAuthDetails />
-        <div className="appbar">
-          <Link to="/">
-            <a href="/" className="logo">
-              Books<span id="watchPart">Watch</span>
-            </a>
-          </Link>
-        </div>
         {!this.props.uid ? (
-          <div id="buttons">
+          <div>
             <button
               id="google-login"
               className="loginBtn loginBtn--google"
@@ -113,7 +108,7 @@ class Auth extends React.Component {
             Logout
           </button>
         )}
-      </div>
+      </span>
     );
   }
 }

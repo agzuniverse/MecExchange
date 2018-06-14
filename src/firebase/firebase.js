@@ -95,7 +95,7 @@ export function searchAll(query) {
   });
 }
 
-export function searchUser(query,uid) {
+export function searchUser(query, uid) {
   query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
@@ -108,21 +108,21 @@ export function searchUser(query,uid) {
           const results = [];
           let flag = true;
           for (const i in data) {
-              console.log(i,data[i]);
-              for (const tag in data[i].tags) {
-                if (data[i].tags[tag].toLowerCase().includes(query)) {
-                  flag = true;
-                  for (const k in results) {
-                    if (results[k] === data[i]) {
-                      flag = false;
-                    }
+            console.log(i, data[i]);
+            for (const tag in data[i].tags) {
+              if (data[i].tags[tag].toLowerCase().includes(query)) {
+                flag = true;
+                for (const k in results) {
+                  if (results[k] === data[i]) {
+                    flag = false;
                   }
-                  if (flag) {
-                    results.push(data[i]);
-                  }
+                }
+                if (flag) {
+                  results.push(data[i]);
                 }
               }
             }
+          }
           resolve(results);
         });
     } catch (e) {

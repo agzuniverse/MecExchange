@@ -48,7 +48,6 @@ class Userpage extends Component {
     });
   };
 
-  
   performSearch = async query => {
     console.log("performSearch");
     this.setState({
@@ -56,10 +55,10 @@ class Userpage extends Component {
     });
     console.log(query);
     try {
-      const data = await searchUser(query,this.props.uid);
+      const data = await searchUser(query, this.props.uid);
       console.log(data);
       this.setState({
-        searchResults:data,
+        searchResults: data,
         loaded: true
       });
     } catch (err) {
@@ -76,7 +75,7 @@ class Userpage extends Component {
 
   render() {
     let books = [];
-    if(this.state.searchResults){
+    if (this.state.searchResults) {
       books = this.state.searchResults.map(book => (
         <ProductDiv details={book} />
       ));

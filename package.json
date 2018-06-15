@@ -21,6 +21,7 @@
     "build": "react-scripts build",
     "test": "./node_modules/.bin/eslint src/ && ./node_modules/.bin/prettier --list-different src/**/*.js && react-scripts test --env=jsdom",
     "jest": "react-scripts test --env=jsdom",
+    "prettify": "./node_modules/.bin/prettier --write ./src/components/*.js && ./node_modules/.bin/prettier --write ./src/css/*.css && ./node_modules/.bin/prettier --write ./src/firebase/*.js && ./node_modules/.bin/prettier --write ./src/redux/*.js",
     "eject": "react-scripts eject"
   },
   "devDependencies": {

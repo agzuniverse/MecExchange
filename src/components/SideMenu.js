@@ -8,6 +8,7 @@ import { setSemFilter, setBranchFilter } from "../redux/ActionCreators";
 import RaisedButton from "material-ui/RaisedButton";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
+import Auth from "./auth";
 
 class SideMenu extends Component {
   constructor(props) {
@@ -30,6 +31,11 @@ class SideMenu extends Component {
       branchValue: value
     });
     this.props.updateBranchFilter(value);
+  };
+
+  login = () => {
+    window.location = "/";
+    window.alert("Please login to add book");
   };
 
   render() {
@@ -91,11 +97,13 @@ class SideMenu extends Component {
                   </RaisedButton>
                 </Link>
               ) : (
-                <Link to="/login">
-                  <RaisedButton backgroundColor="lawngreen" fullWidth>
-                    Sell Books
-                  </RaisedButton>
-                </Link>
+                <RaisedButton
+                  backgroundColor="lawngreen"
+                  fullWidth
+                  onClick={this.login}
+                >
+                  Sell Books
+                </RaisedButton>
               )}
             </div>
           </MuiThemeProvider>
@@ -124,6 +132,7 @@ class SideMenu extends Component {
             <br />
             {this.props.userDetails.email}
             <br />
+            <Auth />
           </div>
           <div className="linksDiv">
             <Link to="/addproduct">
@@ -139,11 +148,6 @@ class SideMenu extends Component {
               </RaisedButton>
               <br />
               <br />
-            </Link>
-            <Link to="/login">
-              <RaisedButton backgroundColor="red" fullWidth>
-                Logout
-              </RaisedButton>
             </Link>
           </div>
         </MuiThemeProvider>
@@ -175,4 +179,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SideMenu);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SideMenu);

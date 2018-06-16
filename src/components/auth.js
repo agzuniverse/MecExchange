@@ -2,7 +2,6 @@ import { auth, provider } from "../firebase/firebase";
 import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import {
   setGlobalUid,
   setGlobalEmail,
@@ -36,6 +35,7 @@ class Auth extends React.Component {
   }
 
   logout = () => {
+    window.location = "/";
     auth.signOut().then(() => {
       this.setState({
         uid: "",
@@ -52,7 +52,7 @@ class Auth extends React.Component {
       this.props.updateEmail("");
       this.props.updatePropic("");
       console.log("Logout Successful");
-      this.props.history.push("/");
+      // this.props.history.push("/");
     });
   };
 
@@ -78,27 +78,21 @@ class Auth extends React.Component {
           localStorage.setItem("LOCAL_NAME", this.state.userName);
           localStorage.setItem("LOCAL_EMAIL", this.state.userEmail);
           localStorage.setItem("LOCAL_PROPIC", this.state.userProPic);
-          this.props.history.push("/user");
+          // this.props.history.push("/user");
         }
       );
       console.log("User has logged in");
-      this.props.history.push("/user");
+      window.location = "/user";
+      // this.props.history.push("/user");
     });
   };
 
   render() {
     return (
-      <div className="topWrapper">
+      <span>
         <GetAuthDetails />
-        <div className="appbar">
-          <Link to="/">
-            <a href="/" className="logo">
-              Books<span id="watchPart">Watch</span>
-            </a>
-          </Link>
-        </div>
         {!this.props.uid ? (
-          <div id="buttons">
+          <div>
             <button
               id="google-login"
               className="loginBtn loginBtn--google"
@@ -113,19 +107,23 @@ class Auth extends React.Component {
             Logout
           </button>
         )}
-      </div>
+      </span>
     );
   }
 }
 
 Auth.propTypes = {
-  uid: PropTypes.string.isRequired,
+  uid: PropTypes.string,
   updateUid: PropTypes.func.isRequired,
   updateEmail: PropTypes.func.isRequired,
   updateName: PropTypes.func.isRequired,
   updatePropic: PropTypes.func.isRequired,
-  testRedux: PropTypes.func.isRequired,
-  history: PropTypes.object.isRequired
+  testRedux: PropTypes.func.isRequired
+  // history: PropTypes.object.isRequired
+};
+
+Auth.defaultProps = {
+  uid: ""
 };
 
 const mapStateToProps = state => ({
@@ -150,4 +148,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Auth);

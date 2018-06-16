@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { searchString } from "../redux/ActionCreators";
 import GetAuthDetails from "./GetAuthDetails";
+import Auth from "./auth";
 
 class Home extends Component {
   search = () => {
@@ -19,15 +20,9 @@ class Home extends Component {
         <GetAuthDetails />
         <div className="Container">
           <div className="topWrapper">
-            {!this.props.uid ? (
-              <Link to="/login">
-                <button id="button">Login</button>
-              </Link>
-            ) : (
-              <Link to="/user">
-                <button id="button">Profile</button>
-              </Link>
-            )}
+            <span id="button">
+              <Auth />
+            </span>
             <center>
               <h1 id="head">
                 Books<span id="watch">Watch</span>
@@ -55,14 +50,14 @@ class Home extends Component {
 }
 
 Home.propTypes = {
-  uid: PropTypes.string,
+  // uid: PropTypes.string,
   updateSearchString: PropTypes.func.isRequired,
   history: PropTypes.object.isRequired
 };
 
-Home.defaultProps = {
-  uid: ""
-};
+// Home.defaultProps = {
+//   uid: ""
+// };
 
 const mapStateToProps = state => ({
   uid: state.auth.uid
@@ -74,4 +69,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

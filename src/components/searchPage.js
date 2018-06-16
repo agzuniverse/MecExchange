@@ -15,12 +15,12 @@ class SearchPage extends Component {
     super(props);
     this.state = {
       searchResults: [],
-      loaded: true
+      loaded: false
     };
   }
 
   componentWillMount() {
-    if (this.props.query !== "" && this.props.query !== null) {
+    if (this.props.query !== null) {
       this.performSearch(this.props.query);
     }
   }

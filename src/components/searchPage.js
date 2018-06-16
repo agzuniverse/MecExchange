@@ -15,7 +15,7 @@ class SearchPage extends Component {
     super(props);
     this.state = {
       searchResults: [],
-      loaded: false,
+      loaded: false
     };
   }
 

@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { searchString } from "../redux/ActionCreators";
 import GetAuthDetails from "./GetAuthDetails";
-import Auth from './auth';
+import Auth from "./auth";
 
 class Home extends Component {
   search = () => {
@@ -20,7 +20,9 @@ class Home extends Component {
         <GetAuthDetails />
         <div className="Container">
           <div className="topWrapper">
-            <span id='button'><Auth /></span>
+            <span id="button">
+              <Auth />
+            </span>
             <center>
               <h1 id="head">
                 Books<span id="watch">Watch</span>
@@ -67,4 +69,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home);

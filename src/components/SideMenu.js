@@ -8,7 +8,7 @@ import { setSemFilter, setBranchFilter } from "../redux/ActionCreators";
 import RaisedButton from "material-ui/RaisedButton";
 import DropDownMenu from "material-ui/DropDownMenu";
 import MenuItem from "material-ui/MenuItem";
-import Auth from './auth';
+import Auth from "./auth";
 
 class SideMenu extends Component {
   constructor(props) {
@@ -34,9 +34,9 @@ class SideMenu extends Component {
   };
 
   login = () => {
-    window.location = '/';
-    window.alert("Please login to add book")
-  }
+    window.location = "/";
+    window.alert("Please login to add book");
+  };
 
   render() {
     if (this.props.isFilter === true) {
@@ -97,7 +97,11 @@ class SideMenu extends Component {
                   </RaisedButton>
                 </Link>
               ) : (
-                <RaisedButton backgroundColor="lawngreen" fullWidth onClick={this.login}>
+                <RaisedButton
+                  backgroundColor="lawngreen"
+                  fullWidth
+                  onClick={this.login}
+                >
                   Sell Books
                 </RaisedButton>
               )}
@@ -175,4 +179,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(SideMenu);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(SideMenu);

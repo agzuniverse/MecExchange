@@ -35,7 +35,7 @@ class Auth extends React.Component {
   }
 
   logout = () => {
-    window.location = '/';
+    window.location = "/";
     auth.signOut().then(() => {
       this.setState({
         uid: "",
@@ -82,7 +82,7 @@ class Auth extends React.Component {
         }
       );
       console.log("User has logged in");
-      window.location = '/user';
+      window.location = "/user";
       // this.props.history.push("/user");
     });
   };
@@ -113,13 +113,17 @@ class Auth extends React.Component {
 }
 
 Auth.propTypes = {
-  uid: PropTypes.string.isRequired,
+  uid: PropTypes.string,
   updateUid: PropTypes.func.isRequired,
   updateEmail: PropTypes.func.isRequired,
   updateName: PropTypes.func.isRequired,
   updatePropic: PropTypes.func.isRequired,
-  testRedux: PropTypes.func.isRequired,
+  testRedux: PropTypes.func.isRequired
   // history: PropTypes.object.isRequired
+};
+
+Auth.defaultProps = {
+  uid: ""
 };
 
 const mapStateToProps = state => ({
@@ -144,4 +148,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Auth);

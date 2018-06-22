@@ -64,7 +64,7 @@ class AddProduct extends Component {
   };
 
   handeSubmit = () => {
-    if (this.props.uid === "" || this.props.uid === null) {
+    if (!this.props.uid) {
       alert("You need to log in to add a book!");
     } else {
       const title = document.getElementById("bookTitle").value;
@@ -150,7 +150,7 @@ class AddProduct extends Component {
         onClick={this.handleClose}
       />
     ];
-    if (this.props.uid !== "" && this.props.uid !== null)
+    if (this.props.uid)
       return (
         <div className="mainBackground-addProductPage sellWrapper">
           <GetAuthDetails />

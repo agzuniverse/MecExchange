@@ -13,11 +13,7 @@ class ProductDisplay extends Component {
     };
   }
   toggleSellerInfoHidden = () => {
-    if (
-      this.props.uid !== "" &&
-      this.props.uid !== null &&
-      this.props.uid !== undefined
-    )
+    if (this.props.uid)
       this.setState({ hidden: !this.state.hidden });
     else {
       alert("Please login to view seller details");

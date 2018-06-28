@@ -74,7 +74,6 @@ class AddProduct extends Component {
       const userClass = document.getElementById("userClass").value;
       const { isOnWa, semester, branch } = this.state;
       const file = document.getElementById("fileUpload").files[0];
-      const tags = title.split(" ").concat(author.split(" "));
 
       this.state.invalid = [];
       if (title.replace(/\s/g, "") === "")
@@ -109,8 +108,7 @@ class AddProduct extends Component {
           email: this.props.email,
           username: this.props.name,
           semester,
-          branch,
-          tags
+          branch
         };
 
         console.log("Adding book");

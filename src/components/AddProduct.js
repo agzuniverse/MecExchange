@@ -77,7 +77,6 @@ class AddProduct extends Component {
       const tags = title.split(" ").concat(author.split(" "));
 
       this.state.invalid = [];
-      // Generate tags for searching
       if (title.replace(/\s/g, "") === "")
         this.setInvalid("Title field is blank");
 
@@ -95,9 +94,6 @@ class AddProduct extends Component {
       if (!(file && file.type.slice(0, 5) === "image"))
         this.setInvalid("Image is invalid.");
 
-      // add all classes to state
-      // if(!this.classNames.includes(userClass))
-      //  this.setInvalid('class');
       if (!this.state.invalid.length === 0) {
         console.log("Form field error");
         this.handleOpen();

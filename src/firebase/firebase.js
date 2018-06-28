@@ -1,5 +1,6 @@
 /* eslint-disable */
 import * as firebase from "firebase";
+import 'firebase/firestore';
 
 const config = {
   apiKey: "AIzaSyDw_Tpy96dXGAd3z65s_s98pdd007MPysU",
@@ -10,6 +11,7 @@ const config = {
 };
 
 firebase.initializeApp(config);
+let db = firebase.firestore();
 
 export function addToStorage(file, data) {
   return new Promise((resolve, reject) => {
@@ -29,14 +31,10 @@ export function addToStorage(file, data) {
 
       storageAdd.put(file).then(snapshot => {
         data.imageURL = snapshot.downloadURL;
-        const database = firebase.database();
-        database
-          .ref(`store/textbooks/${data.uid}`)
-          .push(data)
-          .then(dataSnapshot => {
-            console.log(`Book added successfully dataSnapshot ${dataSnapshot}`);
-            resolve();
-          });
+        db.collection('textbooks').add(data).then(dataSnapshot => {
+          console.log(`Book added successfully dataSnapshot ${dataSnapshot}`);
+          resolve();
+        });
       });
     } catch (e) {
       reject();

@@ -18,7 +18,7 @@ class AddProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      semester: "Semester 1",
+      year: '1',
       branch: "Computer Science",
       isOnWa: true,
       open: false,
@@ -51,9 +51,9 @@ class AddProduct extends Component {
     this.props.history.push("/user");
   };
 
-  semChange = (event, index, value) => {
+  yearChange = (event, index, value) => {
     this.setState({
-      semester: value
+      year: value
     });
   };
 
@@ -72,7 +72,7 @@ class AddProduct extends Component {
       const price = document.getElementById("bookPrice").value;
       const contact = document.getElementById("mobile").value;
       const userClass = document.getElementById("userClass").value;
-      const { isOnWa, semester, branch } = this.state;
+      const { isOnWa, year, branch } = this.state;
       const file = document.getElementById("fileUpload").files[0];
 
       this.state.invalid = [];
@@ -107,7 +107,7 @@ class AddProduct extends Component {
           uid: this.props.uid,
           email: this.props.email,
           username: this.props.name,
-          semester,
+          year,
           branch
         };
 
@@ -209,23 +209,19 @@ class AddProduct extends Component {
                 </div>
                 <br />
                 <span style={{ fontSize: "13px" }}>
-                  Choose the semester for which this book is used:
+                  Choose the year for which this book is used:
                 </span>
                 <DropDownMenu
-                  onChange={this.semChange}
+                  onChange={this.yearChange}
                   style={{ width: "65%" }}
-                  value={this.state.semester}
+                  value={this.state.year}
                   autoWidth={false}
                   className="dropDownMenu"
                 >
-                  <MenuItem value="Semester 1" primaryText="Semester 1" />
-                  <MenuItem value="Semester 2" primaryText="Semester 2" />
-                  <MenuItem value="Semester 3" primaryText="Semester 3" />
-                  <MenuItem value="Semester 4" primaryText="Semester 4" />
-                  <MenuItem value="Semester 5" primaryText="Semester 5" />
-                  <MenuItem value="Semester 6" primaryText="Semester 6" />
-                  <MenuItem value="Semester 7" primaryText="Semester 7" />
-                  <MenuItem value="Semester 8" primaryText="Semester 8" />
+                  <MenuItem value="1" primaryText="1" />
+                  <MenuItem value="2" primaryText="2" />
+                  <MenuItem value="3" primaryText="3" />
+                  <MenuItem value="4" primaryText="4" />
                 </DropDownMenu>
                 <br />
                 <span style={{ fontSize: "13px" }}>

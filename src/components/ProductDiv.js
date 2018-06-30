@@ -12,11 +12,13 @@ class ProductDiv extends Component {
   }
 
   render() {
+    const { imageURL, title, author, price } = this.props.details;
+
     return (
       <div className="ProductDiv">
         <MuiThemeProvider>
           <div className="imgDiv">
-            <img src={this.props.details.imageURL} id="productImg" alt="" />
+            <img src={imageURL} id="productImg" alt="" />
           </div>
           <Link
             to={{ pathname: "/productdisplay", state: this.props.details }}
@@ -24,11 +26,11 @@ class ProductDiv extends Component {
             style={{ textDecoration: "none" }}
           >
             <div className="infoDiv">
-              <span id="bookName">{this.props.details.title}</span>
+              <span id="bookName">{title}</span>
               <br />
-              <span id="author">{this.props.details.author}</span>
+              <span id="author">{author}</span>
               <br />
-              <span id="price">Rs {this.props.details.price}</span>
+              <span id="price">Rs {price}</span>
               <br />
               <br />
             </div>

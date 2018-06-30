@@ -58,10 +58,13 @@ class Userpage extends Component {
     });
     console.log(query);
     try {
-      const data = await searchUser(query, this.props.uid);
-      console.log(data);
+      const result = await searchUser(query, this.props.uid);
+      searchResults = {};
+      result.forEach(data => {
+        searchResults[data.id] = data.data();
+      });
       this.setState({
-        searchResults: data,
+        searchResults,
         loaded: true
       });
     } catch (err) {

@@ -46,9 +46,6 @@ export function readFromStorage(uid) {
   return new Promise((resolve, reject) => {
     try {
       db.collection('textbooks').where('owner','==',uid).get().then(result => {
-        result.forEach(data => {
-          console.log(data.id+' -- '+JSON.stringify(data.data()));
-        });
         resolve(result);
       });
     } catch (e) {
@@ -56,21 +53,6 @@ export function readFromStorage(uid) {
     }
   });
 }
-
-// export function readFromStorage(uid) {
-//   return new Promise((resolve, reject) => {
-//     try {
-//       firebase
-//         .database()
-//         .ref(`store/textbooks/${uid}`)
-//         .once("value", snapshot => {
-//           resolve(snapshot.val());
-//         });
-//     } catch (e) {
-//       reject();
-//     }
-//   });
-// }
 
 export function searchAll(query) {
   query = query.toLowerCase();

@@ -39,8 +39,11 @@ class Userpage extends Component {
   };
 
   fetchUserBooks = async uid => {
-    let bookData = await readFromStorage(uid);
-    console.log(bookData);
+    let result = await readFromStorage(uid);
+    bookData = {};
+    result.forEach(data => {
+      bookData[data.id] = data.data();
+    });
     if (bookData == null) bookData = {};
     this.setState({
       bookData,

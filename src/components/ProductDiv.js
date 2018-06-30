@@ -12,13 +12,13 @@ class ProductDiv extends Component {
   }
 
   render() {
-    const { imageURL, title, author, price } = this.props.details;
+    const { imageurl, title, author, price } = this.props.details;
 
     return (
       <div className="ProductDiv">
         <MuiThemeProvider>
           <div className="imgDiv">
-            <img src={imageURL} id="productImg" alt="" />
+            <img src={imageurl} id="productImg" alt="" />
           </div>
           <Link
             to={{ pathname: "/productdisplay", state: this.props.details }}

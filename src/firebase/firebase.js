@@ -58,73 +58,86 @@ export function searchAll(query) {
   query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
-      firebase
-        .database()
-        .ref("store/textbooks/")
-        .once("value", snapshot => {
-          const data = snapshot.val();
-          const results = [];
-          let flag = true;
-          for (const i in data) {
-            for (const j in data[i]) {
-              for (const tag in data[i][j].tags) {
-                if (data[i][j].tags[tag].toLowerCase().includes(query)) {
-                  flag = true;
-                  for (const k in results) {
-                    if (results[k] === data[i][j]) {
-                      flag = false;
-                    }
-                  }
-                  if (flag) {
-                    results.push(data[i][j]);
-                  }
-                }
-              }
-            }
-          }
-          resolve(results);
-        });
-    } catch (e) {
+      db.collection('textbooks').where('title', '==', query).get().then(result => {
+        resolve(result);
+      });
+    } catch(e) {
       reject();
     }
   });
 }
 
-export function searchUser(query, uid) {
-  query = query.toLowerCase();
-  return new Promise((resolve, reject) => {
-    try {
-      firebase
-        .database()
-        .ref(`store/textbooks/${uid}`)
-        .once("value", snapshot => {
-          const data = snapshot.val();
-          console.log(data);
-          const results = [];
-          let flag = true;
-          for (const i in data) {
-            console.log(i, data[i]);
-            for (const tag in data[i].tags) {
-              if (data[i].tags[tag].toLowerCase().includes(query)) {
-                flag = true;
-                for (const k in results) {
-                  if (results[k] === data[i]) {
-                    flag = false;
-                  }
-                }
-                if (flag) {
-                  results.push(data[i]);
-                }
-              }
-            }
-          }
-          resolve(results);
-        });
-    } catch (e) {
-      reject();
-    }
-  });
-}
+// export function searchAll(query) {
+//   query = query.toLowerCase();
+//   return new Promise((resolve, reject) => {
+//     try {
+//       firebase
+//         .database()
+//         .ref("store/textbooks/")
+//         .once("value", snapshot => {
+//           const data = snapshot.val();
+//           const results = [];
+//           let flag = true;
+//           for (const i in data) {
+//             for (const j in data[i]) {
+//               for (const tag in data[i][j].tags) {
+//                 if (data[i][j].tags[tag].toLowerCase().includes(query)) {
+//                   flag = true;
+//                   for (const k in results) {
+//                     if (results[k] === data[i][j]) {
+//                       flag = false;
+//                     }
+//                   }
+//                   if (flag) {
+//                     results.push(data[i][j]);
+//                   }
+//                 }
+//               }
+//             }
+//           }
+//           resolve(results);
+//         });
+//     } catch (e) {
+//       reject();
+//     }
+//   });
+// }
+
+// export function searchUser(query, uid) {
+//   query = query.toLowerCase();
+//   return new Promise((resolve, reject) => {
+//     try {
+//       firebase
+//         .database()
+//         .ref(`store/textbooks/${uid}`)
+//         .once("value", snapshot => {
+//           const data = snapshot.val();
+//           console.log(data);
+//           const results = [];
+//           let flag = true;
+//           for (const i in data) {
+//             console.log(i, data[i]);
+//             for (const tag in data[i].tags) {
+//               if (data[i].tags[tag].toLowerCase().includes(query)) {
+//                 flag = true;
+//                 for (const k in results) {
+//                   if (results[k] === data[i]) {
+//                     flag = false;
+//                   }
+//                 }
+//                 if (flag) {
+//                   results.push(data[i]);
+//                 }
+//               }
+//             }
+//           }
+//           resolve(results);
+//         });
+//     } catch (e) {
+//       reject();
+//     }
+//   });
+// }
 
 export const provider = new firebase.auth.GoogleAuthProvider();
 export const auth = firebase.auth();

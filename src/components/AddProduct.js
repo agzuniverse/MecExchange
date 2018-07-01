@@ -18,7 +18,7 @@ class AddProduct extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      year: '1',
+      year: "1",
       branch: "Computer Science",
       isOnWa: true,
       open: false,

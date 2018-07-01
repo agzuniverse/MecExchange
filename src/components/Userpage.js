@@ -160,4 +160,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Userpage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Userpage);

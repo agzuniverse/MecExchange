@@ -13,15 +13,23 @@ class ProductDisplay extends Component {
     };
   }
   toggleSellerInfoHidden = () => {
-    if (this.props.uid)
-      this.setState({ hidden: !this.state.hidden });
+    if (this.props.uid) this.setState({ hidden: !this.state.hidden });
     else {
       alert("Please login to view seller details");
     }
   };
 
   render() {
-    const { imageurl, title, author, price, username, contact, isOnWa, email } = this.props.location.state;
+    const {
+      imageurl,
+      title,
+      author,
+      price,
+      username,
+      contact,
+      isOnWa,
+      email
+    } = this.props.location.state;
 
     return (
       <div className="mainBackground sellWrapper">
@@ -45,19 +53,14 @@ class ProductDisplay extends Component {
 
             <div id="centerTotal">
               <div className="imageHolder">
-                <img
-                  id="textbook"
-                  src={imageurl}
-                  alt="Fetching error"
-                />
+                <img id="textbook" src={imageurl} alt="Fetching error" />
               </div>
 
               <div className="detailCard">
                 <div id="textName">{title}</div>
                 <div id="author">{author}</div>
                 <div id="amount">
-                  <span id="priceTag">Price</span>: Rs{" "}
-                  {price}{" "}
+                  <span id="priceTag">Price</span>: Rs {price}{" "}
                 </div>
                 <div id="details">
                   Buyers are required to contact the sellers and set up a
@@ -86,8 +89,7 @@ class ProductDisplay extends Component {
                       Branch: <span>Computer Science</span>
                     </li>
                     <li>
-                      Mobile No:{" "}
-                      <span>{contact}</span>
+                      Mobile No: <span>{contact}</span>
                     </li>
                     {isOnWa ? (
                       <li>

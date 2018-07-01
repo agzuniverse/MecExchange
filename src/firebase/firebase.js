@@ -1,6 +1,6 @@
 /* eslint-disable */
 import * as firebase from "firebase";
-import 'firebase/firestore';
+import "firebase/firestore";
 
 const config = {
   apiKey: "AIzaSyDw_Tpy96dXGAd3z65s_s98pdd007MPysU",
@@ -31,10 +31,12 @@ export function addToStorage(file, data) {
 
       storageAdd.put(file).then(snapshot => {
         data.imageURL = snapshot.downloadURL;
-        db.collection('textbooks').add(data).then(dataSnapshot => {
-          console.log(`Book added successfully dataSnapshot ${dataSnapshot}`);
-          resolve();
-        });
+        db.collection("textbooks")
+          .add(data)
+          .then(dataSnapshot => {
+            console.log(`Book added successfully dataSnapshot ${dataSnapshot}`);
+            resolve();
+          });
       });
     } catch (e) {
       reject();
@@ -45,9 +47,12 @@ export function addToStorage(file, data) {
 export function readFromStorage(uid) {
   return new Promise((resolve, reject) => {
     try {
-      db.collection('textbooks').where('owner','==',uid).get().then(result => {
-        resolve(result);
-      });
+      db.collection("textbooks")
+        .where("owner", "==", uid)
+        .get()
+        .then(result => {
+          resolve(result);
+        });
     } catch (e) {
       reject();
     }
@@ -58,10 +63,13 @@ export function searchAll(query) {
   query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
-      db.collection('textbooks').where('title', '==', query).get().then(result => {
-        resolve(result);
-      });
-    } catch(e) {
+      db.collection("textbooks")
+        .where("title", "==", query)
+        .get()
+        .then(result => {
+          resolve(result);
+        });
+    } catch (e) {
       reject();
     }
   });
@@ -71,10 +79,14 @@ export function searchUser(query, uid) {
   query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
-      db.collection('textbooks').where('owner','==',uid).where('title', '==', query).get().then(result => {
-        resolve(result);
-      });
-    } catch(e) {
+      db.collection("textbooks")
+        .where("owner", "==", uid)
+        .where("title", "==", query)
+        .get()
+        .then(result => {
+          resolve(result);
+        });
+    } catch (e) {
       reject();
     }
   });

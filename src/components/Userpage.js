@@ -39,7 +39,7 @@ class Userpage extends Component {
   };
 
   fetchUserBooks = async uid => {
-    let result = await readFromStorage(uid);
+    const result = await readFromStorage(uid);
     let bookData = {};
     result.forEach(data => {
       bookData[data.id] = data.data();
@@ -59,7 +59,7 @@ class Userpage extends Component {
     console.log(query);
     try {
       const result = await searchUser(query, this.props.uid);
-      let searchResults = {};
+      const searchResults = {};
       result.forEach(data => {
         searchResults[data.id] = data.data();
       });

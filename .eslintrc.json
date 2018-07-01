@@ -15,7 +15,8 @@
     "jsx-a11y/anchor-is-valid": ["off"],
     "no-param-reassign": ["off"],
     "no-inner-declarations": ["off"],
-    "react/forbid-prop-types": ["off"]
+    "react/forbid-prop-types": ["off"],
+    "linebreak-style": ["off"]
   },
   "env": {
     "browser": true,

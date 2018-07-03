@@ -29,11 +29,13 @@ class SearchPage extends Component {
     this.setState({
       loaded: false
     });
-    console.log(query);
-    const data = await searchAll(query);
-    console.log(data);
+    const result = await searchAll(query);
+    let searchResults = {};
+    result.forEach(data => {
+      searchResults[data.id] = data.data();
+    });
     this.setState({
-      searchResults: data,
+      searchResults,
       loaded: true
     });
   };
@@ -48,30 +50,29 @@ class SearchPage extends Component {
     const { searchResults, loaded } = this.state;
     const { semFilter, branchFilter } = this.props;
 
-    console.log(searchResults);
-    const books = searchResults.map(book => {
+    const books = Object.keys(searchResults).map(key => {
       if (
         semFilter === "Any semester" &&
         branchFilter === "Any branch"
       )
-        return <ProductDiv details={book} />;
+        return <ProductDiv details={searchResults[key]} />;
       else if (
         semFilter !== "Any semester" &&
         branchFilter === "Any branch"
       ) {
-        if (book.semester === semFilter)
-          return <ProductDiv details={book} />;
+        if (searchResults[key].semester === semFilter)
+          return <ProductDiv details={searchResults[key]} />;
       } else if (
         semFilter === "Any semester" &&
         branchFilter !== "Any branch"
       ) {
-        if (book.branch === branchFilter)
-          return <ProductDiv details={book} />;
+        if (searchResults[key].branch === branchFilter)
+          return <ProductDiv details={searchResults[key]} />;
       } else if (
-        book.branch === branchFilter &&
-        book.semester === semFilter
+        searchResults[key].branch === branchFilter &&
+        searchResults[key].semester === semFilter
       )
-        return <ProductDiv details={book} />;
+        return <ProductDiv details={searchResults[key]} />;
       return null;
     });
     return (

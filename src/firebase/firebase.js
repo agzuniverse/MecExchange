@@ -60,7 +60,6 @@ export function readFromStorage(uid) {
 }
 
 export function searchAll(query) {
-  query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
       db.collection("textbooks")
@@ -76,7 +75,6 @@ export function searchAll(query) {
 }
 
 export function searchUser(query, uid) {
-  query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
       db.collection("textbooks")

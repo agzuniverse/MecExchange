@@ -93,14 +93,16 @@ class Userpage extends Component {
   };
 
   render() {
+    const { searchResults, bookData, loaded } = this.state;
+
     let books = [];
-    if (this.state.searchResults) {
-      books = this.state.searchResults.map(book => (
+    if (searchResults) {
+      books = searchResults.map(book => (
         <ProductDiv details={book} />
       ));
     } else {
-      books = Object.keys(this.state.bookData).map(key => (
-        <ProductDiv details={this.state.bookData[key]} />
+      books = Object.keys(bookData).map(key => (
+        <ProductDiv details={bookData[key]} />
       ));
     }
 
@@ -115,7 +117,7 @@ class Userpage extends Component {
           <div className="mainDiv">
             <Searchbar search={this.search} />
             <div id="productList">
-              {this.state.loaded ? (
+              {loaded ? (
                 books
               ) : (
                 <div id="loading">

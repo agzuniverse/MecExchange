@@ -97,8 +97,8 @@ class Userpage extends Component {
 
     let books = [];
     if (searchResults) {
-      books = searchResults.map(book => (
-        <ProductDiv details={book} />
+      books = Object.keys(searchResults).map(key => (
+        <ProductDiv details={searchResults[key]} />
       ));
     } else {
       books = Object.keys(bookData).map(key => (

@@ -45,28 +45,31 @@ class SearchPage extends Component {
   };
 
   render() {
-    console.log(this.state.searchResults);
-    const books = this.state.searchResults.map(book => {
+    const { searchResults, loaded } = this.state;
+    const { semFilter, branchFilter } = this.props;
+
+    console.log(searchResults);
+    const books = searchResults.map(book => {
       if (
-        this.props.semFilter === "Any semester" &&
-        this.props.branchFilter === "Any branch"
+        semFilter === "Any semester" &&
+        branchFilter === "Any branch"
       )
         return <ProductDiv details={book} />;
       else if (
-        this.props.semFilter !== "Any semester" &&
-        this.props.branchFilter === "Any branch"
+        semFilter !== "Any semester" &&
+        branchFilter === "Any branch"
       ) {
-        if (book.semester === this.props.semFilter)
+        if (book.semester === semFilter)
           return <ProductDiv details={book} />;
       } else if (
-        this.props.semFilter === "Any semester" &&
-        this.props.branchFilter !== "Any branch"
+        semFilter === "Any semester" &&
+        branchFilter !== "Any branch"
       ) {
-        if (book.branch === this.props.branchFilter)
+        if (book.branch === branchFilter)
           return <ProductDiv details={book} />;
       } else if (
-        book.branch === this.props.branchFilter &&
-        book.semester === this.props.semFilter
+        book.branch === branchFilter &&
+        book.semester === semFilter
       )
         return <ProductDiv details={book} />;
       return null;
@@ -78,7 +81,7 @@ class SearchPage extends Component {
         <div className="mainDiv">
           <Searchbar search={this.search} />
           <div id="productList">
-            {this.state.loaded ? (
+            {loaded ? (
               books
             ) : (
               <div id="loading">

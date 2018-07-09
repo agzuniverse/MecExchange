@@ -74,6 +74,11 @@ class AddProduct extends Component {
       const userClass = document.getElementById("userClass").value;
       const { isOnWa, year, branch } = this.state;
       const file = document.getElementById("fileUpload").files[0];
+      const tagArray = title.split(" ").concat(author.split(" "));
+      let tags = {};
+      tagArray.forEach(e => {
+        tags[e] = true;
+      });
 
       this.state.invalid = [];
       if (title.replace(/\s/g, "") === "")
@@ -108,10 +113,10 @@ class AddProduct extends Component {
           email: this.props.email,
           username: this.props.name,
           year,
-          branch
+          branch,
+          tags
         };
 
-        console.log("Adding book");
         document.getElementById("bookTitle").value = "";
         document.getElementById("bookAuthor").value = "";
         document.getElementById("bookPrice").value = "";

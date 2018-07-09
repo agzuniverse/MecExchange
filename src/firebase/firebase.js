@@ -48,7 +48,7 @@ export function readFromStorage(uid) {
   return new Promise((resolve, reject) => {
     try {
       db.collection("textbooks")
-        .where("owner", "==", uid)
+        .where("uid", "==", uid)
         .get()
         .then(result => {
           resolve(result);
@@ -78,7 +78,7 @@ export function searchUser(query, uid) {
   return new Promise((resolve, reject) => {
     try {
       db.collection("textbooks")
-        .where("owner", "==", uid)
+        .where("uid", "==", uid)
         .where("title", "==", query)
         .get()
         .then(result => {

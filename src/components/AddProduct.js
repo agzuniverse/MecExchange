@@ -75,7 +75,7 @@ class AddProduct extends Component {
       const { isOnWa, year, branch } = this.state;
       const file = document.getElementById("fileUpload").files[0];
       const tagArray = title.split(" ").concat(author.split(" "));
-      let tags = {};
+      const tags = {};
       tagArray.forEach(e => {
         tags[e.toLowerCase()] = true;
       });

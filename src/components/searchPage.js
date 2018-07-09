@@ -30,7 +30,7 @@ class SearchPage extends Component {
       loaded: false
     });
     const result = await searchAll(query);
-    let searchResults = {};
+    const searchResults = {};
     result.forEach(data => {
       searchResults[data.id] = data.data();
     });

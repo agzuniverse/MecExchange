@@ -77,7 +77,7 @@ class AddProduct extends Component {
       const tagArray = title.split(" ").concat(author.split(" "));
       let tags = {};
       tagArray.forEach(e => {
-        tags[e] = true;
+        tags[e.toLowerCase()] = true;
       });
 
       this.state.invalid = [];

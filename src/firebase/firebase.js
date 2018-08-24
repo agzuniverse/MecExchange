@@ -64,7 +64,7 @@ export function searchAll(query) {
   return new Promise((resolve, reject) => {
     try {
       db.collection("textbooks")
-        .where("tags."+query, "==", true)
+        .where("tags." + query, "==", true)
         .get()
         .then(result => {
           resolve(result);
@@ -81,7 +81,7 @@ export function searchUser(query, uid) {
     try {
       db.collection("textbooks")
         .where("uid", "==", uid)
-        .where("tags."+query, "==", true)
+        .where("tags." + query, "==", true)
         .get()
         .then(result => {
           resolve(result);

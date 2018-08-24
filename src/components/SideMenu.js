@@ -175,7 +175,4 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(SideMenu);
+export default connect(mapStateToProps, mapDispatchToProps)(SideMenu);

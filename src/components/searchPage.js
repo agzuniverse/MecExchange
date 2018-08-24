@@ -51,15 +51,9 @@ class SearchPage extends Component {
     const { semFilter, branchFilter } = this.props;
 
     const books = Object.keys(searchResults).map(key => {
-      if (
-        semFilter === "Any semester" &&
-        branchFilter === "Any branch"
-      )
+      if (semFilter === "Any semester" && branchFilter === "Any branch")
         return <ProductDiv details={searchResults[key]} />;
-      else if (
-        semFilter !== "Any semester" &&
-        branchFilter === "Any branch"
-      ) {
+      else if (semFilter !== "Any semester" && branchFilter === "Any branch") {
         if (searchResults[key].semester === semFilter)
           return <ProductDiv details={searchResults[key]} />;
       } else if (

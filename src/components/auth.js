@@ -2,6 +2,7 @@ import { auth, provider } from "../firebase/firebase";
 import PropTypes from "prop-types";
 import React from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import {
   setGlobalUid,
   setGlobalEmail,
@@ -100,9 +101,23 @@ class Auth extends React.Component {
             {/* <button id="fb-login" className="loginBtn loginBtn--facebook" onClick={ this.login }>Login with Facebook</button> */}
           </div>
         ) : (
-          <button id="logout" onClick={this.logout}>
-            Logout
-          </button>
+          <div>
+            <span>
+              {this.props.location.pathname !== "/user" ? (
+                <button
+                  id="userpage"
+                  onClick={() => this.props.history.push("/user")}
+                >
+                  My Profile
+                </button>
+              ) : null}
+            </span>
+            <span>
+              <button id="logout" onClick={this.logout}>
+                Logout
+              </button>
+            </span>
+          </div>
         )}
       </span>
     );
@@ -116,7 +131,9 @@ Auth.propTypes = {
   updateName: PropTypes.func.isRequired,
   updatePropic: PropTypes.func.isRequired,
   testRedux: PropTypes.func.isRequired,
-  navigateOnAuthChange: PropTypes.func.isRequired
+  navigateOnAuthChange: PropTypes.func.isRequired,
+  history: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 };
 
 Auth.defaultProps = {
@@ -145,4 +162,7 @@ const mapDispatchToProps = dispatch => ({
   }
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Auth);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(Auth));

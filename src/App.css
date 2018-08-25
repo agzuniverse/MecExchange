@@ -592,6 +592,24 @@ footer {
   white-space: nowrap;
   cursor: pointer;
 }
+#userpage {
+  box-sizing: border-box;
+  /* position: absolute; */
+  /* top: 39%;
+  left: 0;
+  right: 0; */
+  margin: auto;
+  width: 8em;
+  height: 2.2em;
+  text-align: center;
+  font-size: 18px;
+  background-color: #00c853b7;
+  color: white;
+  border: none;
+  border-radius: 0.2em;
+  white-space: nowrap;
+  cursor: pointer;
+}
 
 #logoutAppBar {
   box-sizing: border-box;

@@ -158,17 +158,18 @@ class AddProduct extends Component {
               <a href="/" className="logo">
                 Books<span id="watchPart">Watch</span>
               </a>
+
+              <div className="backToButton">
+                <RaisedButton
+                  style={{ float: "right", marginRight: "2vw" }}
+                  label="Back to Profile"
+                  onClick={this.goToUserPage}
+                  primary
+                />
+              </div>
             </div>
             {!this.state.uploading ? (
               <div className="centerTotal">
-                <div className="backToButton">
-                  <RaisedButton
-                    style={{ float: "right", marginRight: "2vw" }}
-                    label="Back to Profile"
-                    onClick={this.goToUserPage}
-                    primary
-                  />
-                </div>
                 <h2 className="materialBlack">Add New Book</h2>
                 <hr style={{ height: "2px", width: "90%", color: "black" }} />
                 <p className="info">

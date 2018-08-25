@@ -114,7 +114,6 @@ footer {
 }
 
 .logo {
-  float: left;
   text-decoration: none;
   text-align: center;
   color: rgba(255, 255, 255, 0.87);
@@ -334,10 +333,8 @@ footer {
 }
 
 .centerTotal {
-  height: auto;
   padding: 20px 0px 20px 0px;
   width: 85%;
-  background-color: white;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -408,11 +405,10 @@ footer {
   position: sticky;
   top: 0px;
   width: 100vw;
-  text-align: center;
   min-height: 9.3vh;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   box-shadow: 2px 2px 15px rgb(66, 66, 66);
 }
 
@@ -422,8 +418,9 @@ footer {
 }
 
 .backToButton {
-  width: 100%;
-  height: 5%;
+  position: absolute;
+  right: 16px;
+  justify-self: flex-end;
 }
 
 .imageHolder {
@@ -706,7 +703,11 @@ footer {
 
 @media (max-width: 768px) {
   .logo {
-    display: none;
+    font-size: 24px;
+    padding-left: 16px;
+  }
+  .appbar {
+    justify-content: space-between;
   }
   #centerTotal {
     height: 180vh;

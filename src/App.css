@@ -88,7 +88,8 @@ footer {
 }
 .mainBackground-addProductPage {
   background: rgb(4, 47, 78);
-  height: 100vh;
+  min-height: 100vh;
+  overflow: scroll;
 }
 .mainColor {
   color: rgba(255, 255, 255, 0.87);
@@ -699,9 +700,6 @@ footer {
     display: flex;
     justify-content: center;
   }
-}
-
-@media (max-width: 768px) {
   .logo {
     font-size: 24px;
     padding-left: 16px;
@@ -809,16 +807,6 @@ footer {
   #input {
     top: 14.3em;
     width: 80%;
-  }
-
-  .mainBackground {
-    height: 180vh;
-  }
-  .sellWrapper {
-    height: 180vh;
-  }
-  .centerTotal {
-    height: 180vh;
   }
 }
 

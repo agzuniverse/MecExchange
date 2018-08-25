@@ -252,8 +252,7 @@ class AddProduct extends Component {
                 <br />
                 <br />
                 <span style={{ padding: "5px", fontSize: "13px" }}>
-                  {" "}
-                  Upload a good quality picture of the book.{" "}
+                  Upload a good quality picture of the book.
                 </span>
                 <RaisedButton
                   label="Choose Image"
@@ -267,7 +266,7 @@ class AddProduct extends Component {
                     className="hiddenFileInput"
                   />
                 </RaisedButton>
-                <div style={{ height: "5vh" }} />
+                <div style={{ height: "2vh" }} />
                 <RaisedButton
                   onClick={() => this.handeSubmit()}
                   label="Submit"

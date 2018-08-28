@@ -31,8 +31,8 @@ export function addToStorage(file, data) {
 
       storageAdd.put(file).then(snapshot => {
         data.imageURL = snapshot.downloadURL;
-        db
-          .collection("textbooks")
+        data.fileID = uuid + file.name;
+        db.collection("textbooks")
           .add(data)
           .then(dataSnapshot => {
             console.log(`Book added successfully dataSnapshot ${dataSnapshot}`);
@@ -48,8 +48,7 @@ export function addToStorage(file, data) {
 export function readFromStorage(uid) {
   return new Promise((resolve, reject) => {
     try {
-      db
-        .collection("textbooks")
+      db.collection("textbooks")
         .where("uid", "==", uid)
         .get()
         .then(result => {
@@ -65,8 +64,7 @@ export function searchAll(query) {
   query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
-      db
-        .collection("textbooks")
+      db.collection("textbooks")
         .where("tags." + query, "==", true)
         .get()
         .then(result => {
@@ -82,8 +80,7 @@ export function searchUser(query, uid) {
   query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
-      db
-        .collection("textbooks")
+      db.collection("textbooks")
         .where("uid", "==", uid)
         .where("tags." + query, "==", true)
         .get()
@@ -91,6 +88,43 @@ export function searchUser(query, uid) {
           resolve(result);
         });
     } catch (e) {
+      reject();
+    }
+  });
+}
+
+export function deleteFromDB(tbID) {
+  new Promise((resolve, reject) => {
+    // get user
+    var user = auth.currentUser;
+    if (user) {
+      // get storageId
+      var bookImgURL;
+      db.collection("textbooks")
+        .doc(tbID)
+        .get()
+        .then(result => {
+          bookImgURL = result.fileID;
+        });
+      // delete from storage
+      var imageRef = storageRef.child(bookImgURL);
+      imageRef
+        .delete()
+        .then(function() {
+          // delete from database
+          db.collection("textbooks")
+            .doc(tbID)
+            .delete()
+            .then(() => {
+              resolve(true);
+            });
+        })
+        .catch(function(error) {
+          console.log("Error: Cannot delete from storage");
+          reject();
+        });
+    } else {
+      console.log("This action is forbidden");
       reject();
     }
   });

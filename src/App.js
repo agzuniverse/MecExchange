@@ -9,12 +9,13 @@ import SearchPage from "./components/searchPage";
 import Userpage from "./components/Userpage";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Credits from "./components/credits";
+import LandingPage from "./components/LandingPage";
 
 const App = () => (
   <Provider store={Store}>
     <Router>
       <div>
-        <Route exact path="/" component={Home} />
+        <Route exact path="/" component={LandingPage} />
         <Route path="/addproduct" component={AddProduct} />
         <Route path="/search" component={SearchPage} />
         <Route path="/productdisplay" component={ProductDisplay} />

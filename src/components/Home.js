@@ -33,27 +33,34 @@ class Home extends Component {
         <GetAuthDetails />
         <div className="Container">
           <div className="topWrapper">
-            <span id="button">
-              <Auth navigateOnAuthChange={this.navigateOnAuthChange} />
-            </span>
-            <center>
-              <h1 id="head">
-                Books<span id="watch">Watch</span>
-              </h1>
-            </center>
-            <form onSubmit={this.search}>
-              <input id="input" type="text" placeholder="Search for Books" />
-            </form>
-            <div id="tagLine">
-              An Official KTU book exchange platform For MECians!
+
+            <div className="bg"></div>
+            <div className="bg2"></div>
+            <div className="bg3"></div>
+
+            <div className="container">
+              <span id="button">
+                <Auth navigateOnAuthChange={this.navigateOnAuthChange} />
+              </span>
+              <center>
+                <h1 id="head">
+                  Books<span id="watch">Watch</span>
+                </h1>
+              </center>
+              <form onSubmit={this.search}>
+                <input id="input" type="text" placeholder="Search for Books" />
+              </form>
+              <div id="tagLine">
+                An Official KTU book exchange platform For MECians!
             </div>
-            <div id="bottom">
-              <Link
-                to="/credits"
-                style={{ textDecoration: "none", color: "white" }}
-              >
-                Developed by Students of Govt. Model Engineering College
+              <div id="bottom">
+                <Link
+                  to="/credits"
+                  style={{ textDecoration: "none", color: "white" }}
+                >
+                  Developed by Students of Govt. Model Engineering College
               </Link>
+              </div>
             </div>
           </div>
         </div>

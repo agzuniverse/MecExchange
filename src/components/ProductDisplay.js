@@ -13,18 +13,24 @@ class ProductDisplay extends Component {
     };
   }
   toggleSellerInfoHidden = () => {
-    if (
-      this.props.uid !== "" &&
-      this.props.uid !== null &&
-      this.props.uid !== undefined
-    )
-      this.setState({ hidden: !this.state.hidden });
+    if (this.props.uid) this.setState({ hidden: !this.state.hidden });
     else {
       alert("Please login to view seller details");
     }
   };
 
   render() {
+    const {
+      imageurl,
+      title,
+      author,
+      price,
+      username,
+      contact,
+      isOnWa,
+      email
+    } = this.props.location.state;
+
     return (
       <div className="mainBackground sellWrapper">
         <GetAuthDetails />
@@ -47,19 +53,14 @@ class ProductDisplay extends Component {
 
             <div id="centerTotal">
               <div className="imageHolder">
-                <img
-                  id="textbook"
-                  src={this.props.location.state.imageURL}
-                  alt="Fetching error"
-                />
+                <img id="textbook" src={imageurl} alt="Fetching error" />
               </div>
 
               <div className="detailCard">
-                <div id="textName">{this.props.location.state.title}</div>
-                <div id="author">{this.props.location.state.author}</div>
+                <div id="textName">{title}</div>
+                <div id="author">{author}</div>
                 <div id="amount">
-                  <span id="priceTag">Price</span>: Rs{" "}
-                  {this.props.location.state.price}{" "}
+                  <span id="priceTag">Price</span>: Rs {price}{" "}
                 </div>
                 <div id="details">
                   Buyers are required to contact the sellers and set up a
@@ -79,7 +80,7 @@ class ProductDisplay extends Component {
                   <h2>Seller Info</h2>
                   <ul>
                     <li>
-                      Name: <span>{this.props.location.state.username}</span>
+                      Name: <span>{username}</span>
                     </li>
                     <li>
                       Semester: <span>4</span>
@@ -88,10 +89,9 @@ class ProductDisplay extends Component {
                       Branch: <span>Computer Science</span>
                     </li>
                     <li>
-                      Mobile No:{" "}
-                      <span>{this.props.location.state.contact}</span>
+                      Mobile No: <span>{contact}</span>
                     </li>
-                    {this.props.location.state.isOnWa ? (
+                    {isOnWa ? (
                       <li>
                         Is on Whatsapp: <span>Yes</span>
                       </li>
@@ -102,7 +102,7 @@ class ProductDisplay extends Component {
                     )}
                     <li>
                       Email:
-                      <span>{this.props.location.state.email}</span>
+                      <span>{email}</span>
                     </li>
                     <button
                       type="submit"

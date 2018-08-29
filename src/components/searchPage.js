@@ -29,11 +29,13 @@ class SearchPage extends Component {
     this.setState({
       loaded: false
     });
-    console.log(query);
-    const data = await searchAll(query);
-    console.log(data);
+    const result = await searchAll(query);
+    const searchResults = {};
+    result.forEach(data => {
+      searchResults[data.id] = data.data();
+    });
     this.setState({
-      searchResults: data,
+      searchResults,
       loaded: true
     });
   };
@@ -45,30 +47,26 @@ class SearchPage extends Component {
   };
 
   render() {
-    console.log(this.state.searchResults);
-    const books = this.state.searchResults.map(book => {
-      if (
-        this.props.semFilter === "Any semester" &&
-        this.props.branchFilter === "Any branch"
-      )
-        return <ProductDiv details={book} />;
-      else if (
-        this.props.semFilter !== "Any semester" &&
-        this.props.branchFilter === "Any branch"
-      ) {
-        if (book.semester === this.props.semFilter)
-          return <ProductDiv details={book} />;
+    const { searchResults, loaded } = this.state;
+    const { semFilter, branchFilter } = this.props;
+
+    const books = Object.keys(searchResults).map(key => {
+      if (semFilter === "Any semester" && branchFilter === "Any branch")
+        return <ProductDiv details={searchResults[key]} />;
+      else if (semFilter !== "Any semester" && branchFilter === "Any branch") {
+        if (searchResults[key].semester === semFilter)
+          return <ProductDiv details={searchResults[key]} />;
       } else if (
-        this.props.semFilter === "Any semester" &&
-        this.props.branchFilter !== "Any branch"
+        semFilter === "Any semester" &&
+        branchFilter !== "Any branch"
       ) {
-        if (book.branch === this.props.branchFilter)
-          return <ProductDiv details={book} />;
+        if (searchResults[key].branch === branchFilter)
+          return <ProductDiv details={searchResults[key]} />;
       } else if (
-        book.branch === this.props.branchFilter &&
-        book.semester === this.props.semFilter
+        searchResults[key].branch === branchFilter &&
+        searchResults[key].semester === semFilter
       )
-        return <ProductDiv details={book} />;
+        return <ProductDiv details={searchResults[key]} />;
       return null;
     });
     return (
@@ -78,7 +76,7 @@ class SearchPage extends Component {
         <div className="mainDiv">
           <Searchbar search={this.search} />
           <div id="productList">
-            {this.state.loaded ? (
+            {loaded ? (
               books
             ) : (
               <div id="loading">

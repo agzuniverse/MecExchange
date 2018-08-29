@@ -10,7 +10,7 @@ import {
 
 class GetAuthDetails extends React.Component {
   componentWillMount() {
-    if (this.props.uid === "" || this.props.uid === null) {
+    if (!this.props.uid) {
       this.props.updateUid(localStorage.getItem("LOCAL_UID"));
       this.props.updateName(localStorage.getItem("LOCAL_NAME"));
       this.props.updateEmail(localStorage.getItem("LOCAL_EMAIL"));

@@ -1,3 +1,4 @@
+
 import React from "react";
 import "../css/credits.css";
 import { FaEnvelope, FaGithub } from "react-icons/lib/fa";
@@ -31,9 +32,9 @@ class Credits extends React.Component {
         sub: "Front End",
         githubID: "https://github.com/JoyalAJohney",
         avatar:
-          "https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-9/25594088_1251251545020685_3793156892541494986_n.jpg?_nc_cat=0&oh=d912ee22c56988896577a3c1e4c48549&oe=5B62BEB2",
+          "https://avatars0.githubusercontent.com/u/31545426?s=400&u=d449cc85fcec4e93424771795bcd1843d5573c1e&v=4",
         desc:
-          "If something is Important enough and you believe it enough..Work Hard like its now or never till you achieve it.",
+          "Existential Thinker,DayDreamer and a Soul in Pursuit of Purpose",
         gitName: "JoyalAJohney"
       },
       {
@@ -68,12 +69,7 @@ class Credits extends React.Component {
       <FaEnvelope key={dev.email} /> {dev.email}
       <br />
       <FaGithub key={dev.githubID} />{" "}
-      <a
-        href={dev.githubID}
-        rel="noopener noreferrer"
-        target="_blank"
-        style={{ color: "#2ecc71" }}
-      >
+      <a href={dev.githubID} target="_blank" style={{ color: "#2ecc71" }}>
         {dev.gitName}
       </a>
     </div>

@@ -1,4 +1,5 @@
 import React from "react";
+
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
 import "../App.css";
@@ -7,11 +8,12 @@ import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 
 class ProductDiv extends React.Component {
   deleteBook = id => {
+    console.log(id);
     deleteFromDB(id);
   };
 
   render() {
-    const { imageURL, title, author, price, book_id } = this.props.details;
+    const { imageURL, title, author, price, bookId } = this.props.details;
 
     return (
       <div className="ProductDiv">
@@ -34,11 +36,11 @@ class ProductDiv extends React.Component {
               <br />
             </div>
           </Link>
-          {book_id ? (
+          {bookId ? (
             <div>
               <button
-                onClick={() => this.deleteBook(book_id)}
-                class="bookDeleteButton"
+                onClick={() => this.deleteBook(bookId)}
+                className="bookDeleteButton"
               >
                 Delete book
               </button>

@@ -97,35 +97,46 @@ export function deleteFromDB(tbID) {
   new Promise((resolve, reject) => {
     // get user
     var user = auth.currentUser;
+    console.log(tbID);
     if (user) {
       // get storageId
-      var bookImgURL;
       db.collection("textbooks")
         .doc(tbID)
         .get()
         .then(result => {
-          bookImgURL = result.fileID;
+          var data = result.data();
+          if (data.uid !== user.uid) {
+            console.log("This action is forbidden");
+            reject(false);
+            return;
+          }
+          var bookImgURL = data.imageURL;
+          var book_id = bookImgURL.slice(72, -53);
+          const storageRef = firebase.storage().ref();
+          var imageRef = storageRef.child(book_id);
+          imageRef
+            .delete()
+            .then(function() {
+              // delete from database
+              db.collection("textbooks")
+                .doc(tbID)
+                .delete()
+                .then(() => {
+                  resolve(true);
+                });
+            })
+            .catch(function(error) {
+              console.log("Error: Cannot delete from storage");
+              reject(false);
+              return;
+            });
+          bookImgURL = result.data().imageURL;
         });
       // delete from storage
-      var imageRef = storageRef.child(bookImgURL);
-      imageRef
-        .delete()
-        .then(function() {
-          // delete from database
-          db.collection("textbooks")
-            .doc(tbID)
-            .delete()
-            .then(() => {
-              resolve(true);
-            });
-        })
-        .catch(function(error) {
-          console.log("Error: Cannot delete from storage");
-          reject();
-        });
     } else {
       console.log("This action is forbidden");
-      reject();
+      reject(false);
+      return;
     }
   });
 }

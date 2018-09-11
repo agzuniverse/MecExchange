@@ -1,7 +1,7 @@
 /* eslint-disable */
 import * as firebase from "firebase";
 import "firebase/firestore";
-import * as algoliasearch from 'algoliasearch';
+import * as algoliasearch from "algoliasearch";
 
 const config = {
   apiKey: "AIzaSyDw_Tpy96dXGAd3z65s_s98pdd007MPysU",
@@ -38,29 +38,31 @@ export function addToStorage(file, data) {
           .then(dataSnapshot => {
             console.log(`Book added successfully dataSnapshot ${dataSnapshot}`);
             console.log(dataSnapshot);
-            firebase.auth().currentUser.getIdToken(true).then(idToken => {
-              const algoData = {
-                idToken,
-                textbookID: dataSnapshot.id,
-                data
-              };
-              fetch("https://secret-escarpment-95373.herokuapp.com/", {
-                method: "POST", 
-                headers: {
-                  "Content-Type": "application/json; charset=utf-8",
-                },
-                body: JSON.stringify(algoData), // body data type must match "Content-Type" header
-              })
-                .then(res => {
-                  console.log(res);
-                  resolve();
+            firebase
+              .auth()
+              .currentUser.getIdToken(true)
+              .then(idToken => {
+                const algoData = {
+                  idToken,
+                  textbookID: dataSnapshot.id,
+                  data
+                };
+                fetch("https://secret-escarpment-95373.herokuapp.com/", {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json; charset=utf-8"
+                  },
+                  body: JSON.stringify(algoData) // body data type must match "Content-Type" header
                 })
-                .catch(err => {
-                  console.log(err);
-                  reject();
-                });
-            })
-
+                  .then(res => {
+                    console.log(res);
+                    resolve();
+                  })
+                  .catch(err => {
+                    console.log(err);
+                    reject();
+                  });
+              });
           });
       });
     } catch (e) {

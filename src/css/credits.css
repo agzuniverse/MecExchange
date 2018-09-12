@@ -1,7 +1,7 @@
 .credits-container {
   border-radius: 30px;
   -webkit-box-shadow: 3px 7px 30px rgb(66, 66, 66);
-  background-color: rgba(227, 227, 227, 0.39);
+  background-color: rgba(227, 227, 227, 0.45);
   width: 60%;
   height: 90%;
   position: absolute;
@@ -10,7 +10,7 @@
   right: 0px;
   left: 0px;
   bottom: 0px;
-  overflow-x: hidden;
+  overflow: auto;
 }
 
 .credits-card {

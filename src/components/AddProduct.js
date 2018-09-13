@@ -110,7 +110,7 @@ class AddProduct extends Component {
       if (!(file && file.type.slice(0, 5) === "image"))
         this.setInvalid("Image is invalid.");
 
-      if (!this.state.invalid.length === 0) {
+      if (!(this.state.invalid.length === 0)) {
         console.log("Form field error");
         this.handleOpen();
       } else {

@@ -811,13 +811,13 @@ footer {
   }
   .Wrapper {
     height: 100vh;
-  }
+  } 
 }
 
 .userInfoDiv {
   text-align: center;
   color: white;
-  font-size: 1.2vw;
+  font-size: 1vw;
   overflow-x: hidden;
 }
 .profilePic {

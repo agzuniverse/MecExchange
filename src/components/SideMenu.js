@@ -126,15 +126,15 @@ class SideMenu extends Component {
           </div>
           <div className="linksDiv">
             <Link to="/addproduct">
-              <RaisedButton backgroundColor="lawngreen" fullWidth>
+              <RaisedButton style={{ borderRadius: '90px' }} buttonStyle={{ borderRadius: 90, backgroundColor: "lawngreen" }} fullWidth>
                 Add Book
               </RaisedButton>
               <br />
               <br />
             </Link>
             <Link to="/search">
-              <RaisedButton backgroundColor="lightblue" fullWidth>
-                Search for books
+              <RaisedButton style={{ borderRadius: '90px' }} buttonStyle={{ borderRadius: 90 }} fullWidth>
+                  Search for books
               </RaisedButton>
               <br />
               <br />

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "../App.css";
-import BooksPic from '../img/43122.jpg';
+import BooksPic from '../img/joy.jpg';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { searchString } from "../redux/ActionCreators";
@@ -49,9 +49,9 @@ class Home extends Component {
               <input id="input" type="text" placeholder="Search for Books" />
             </form>
             <div id="tagLine">A KTU book exchange platform For MECians!</div>
-            {/* <div className="booksPic">
-              <img src={BooksPic} height="250" width="300" />
-            </div> */}
+            <div className="booksPic">
+              <img src={BooksPic} height="500" width="400" />
+            </div>
             <div id="bottom">
               <Link
                 to="/credits"

@@ -14,6 +14,7 @@ import ProductDiv from "./ProductDiv";
 import CircularProgress from "material-ui/CircularProgress";
 import MuiThemeProvider from "material-ui/styles/MuiThemeProvider";
 import Searchbar from "./Searchbar";
+import Modal from './modal';
 
 class Userpage extends Component {
   constructor(props) {
@@ -131,12 +132,12 @@ class Userpage extends Component {
               {loaded ? (
                 books
               ) : (
-                <div id="loading">
-                  <MuiThemeProvider>
-                    <CircularProgress size={50} thickness={5} />
-                  </MuiThemeProvider>
-                </div>
-              )}
+                  <div id="loading">
+                    <MuiThemeProvider>
+                      <CircularProgress size={50} thickness={5} />
+                    </MuiThemeProvider>
+                  </div>
+                )}
             </div>
           </div>
         </div>

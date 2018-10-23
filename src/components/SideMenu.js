@@ -134,11 +134,14 @@ class SideMenu extends Component {
             </Link>
             <Link to="/search">
               <RaisedButton style={{ borderRadius: '90px' }} buttonStyle={{ borderRadius: 90 }} fullWidth>
-                  Search for books
+                Search for books
               </RaisedButton>
               <br />
               <br />
             </Link>
+            <RaisedButton style={{ borderRadius: '90px' }} buttonStyle={{ borderRadius: 90, backgroundColor: "lawngreen" }} fullWidth>
+              Inbox
+              </RaisedButton>
           </div>
         </MuiThemeProvider>
       </div>

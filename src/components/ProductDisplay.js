@@ -76,7 +76,7 @@ class ProductDisplay extends Component {
             {/* EXTRA WHITE DIV */}
             <div className="extraWhiteDiv">
               <button type="submit"
-                onClick={() => this.toggleSellerInfoHidden()}
+                onClick={() => this.showModal()}
                 id="contactButton" >chat with Seller</button>
             </div>
 
@@ -161,9 +161,6 @@ class ProductDisplay extends Component {
                       Email:
                       <span>{email}</span>
                     </li>
-                    <button onClick={() => this.showModal()}>
-                      Contact seller
-                    </button>
                     <button
                       type="submit"
                       onClick={() => this.toggleSellerInfoHidden()}

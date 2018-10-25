@@ -356,7 +356,7 @@ footer {
 }
 
 .extraWhiteDiv {
-  min-height: 13vh;
+  min-height: 12vh;
   width: 100vw;
   background-color: white;
   font-size: 23px;
@@ -365,6 +365,23 @@ footer {
   align-items: center;
   text-align: center;
   color: #474949;
+}
+
+#contactButton{
+  cursor: pointer;
+  padding: 10px;
+  font-size: 20px;
+  background-color: #00c853;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  color: white;
+  width: 12%;
+  border-radius: 1em;
+  outline: none;
+  border: none;
+  font-family: "BrandonGrotesque-Med";
+
+  position: absolute;
+  right: 1vw;
 }
 
 .gitHub {
@@ -654,6 +671,7 @@ footer {
   outline: none;
   cursor: pointer;
 }
+
 .details {
   color: #212121;
 }

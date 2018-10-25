@@ -68,16 +68,17 @@ class ProductDisplay extends Component {
                   <button id="logoutAppBar">Login</button>
                 </Link>
               ) : (
-                <Link to="/user">
-                  <button id="logoutAppBar">Profile</button>
-                </Link>
-              )}
+                  <Link to="/user">
+                    <button id="logoutAppBar">Profile</button>
+                  </Link>
+                )}
             </div>
             {/* EXTRA WHITE DIV */}
-            {/* <div className="extraWhiteDiv">
-              "We are inviting developers to contribute to MecBooksWatch"
-              <img className="gitHub" src={gitHub} width="100" height="100" />
-            </div> */}
+            <div className="extraWhiteDiv">
+              <button type="submit"
+                onClick={() => this.toggleSellerInfoHidden()}
+                id="contactButton" >chat with Seller</button>
+            </div>
 
             <div id="centerTotal">
               <div className="imageHolder">
@@ -152,10 +153,10 @@ class ProductDisplay extends Component {
                         Is on Whatsapp: <span>Yes</span>
                       </li>
                     ) : (
-                      <li>
-                        Is on Whatsapp: <span>No</span>
-                      </li>
-                    )}
+                        <li>
+                          Is on Whatsapp: <span>No</span>
+                        </li>
+                      )}
                     <li>
                       Email:
                       <span>{email}</span>
@@ -175,8 +176,8 @@ class ProductDisplay extends Component {
             </div>
           </div>
         ) : (
-          <h1 style={{ color: "white" }}>403 Forbidden</h1>
-        )}
+            <h1 style={{ color: "white" }}>403 Forbidden</h1>
+          )}
       </div>
     );
   }

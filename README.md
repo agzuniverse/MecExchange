@@ -44,9 +44,6 @@ This is a project to create a textbook buy/sell website for college students, st
 * [Joyal A Johney](https://github.com/joyalajohney/)
 * [Vivek R](https://github.com/123vivekr)
 
-### Features that may or may not be added
-* Image preview before upload
-* Make all sections of the site responsive.
-* Add an internal communication system so contact details does not have to be given up.
+### TO DO:
 * Add something to verify the student is from MEC on login.
 * Support for things other than textbooks, like mini drafters etc

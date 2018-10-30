@@ -51,19 +51,21 @@ class Modal extends Component {
   };
 
   fetchChat() {
+    const Buyerbox = (props) => <div className="buyerBox">{props.chat}</div>;
+    const Sellerbox = (props) => <div className="sellerBox">{props.chat}</div>;
+
     if (this.props.sendToUid) {
       return (
         <div className="chatContainer">
           <div className="chatHead">MecBooksWatch</div>
           <div className="chatBody">
-            <div className="buyerBox">
-              Hey,there I'm interested in purchasing your book, where can we
-              meet?
-            </div>
+            {this.state.receivedMessages.map((chat) => {
+              return <Buyerbox chat={chat} />
+            })}
 
-            <div className="sellerBox">
-              Yeah Sure, we can meet up near college library at 1pm tomorrow..
-            </div>
+            {this.state.sentMessages.map((chat) => {
+              return <Sellerbox chat={chat} />
+            })}
           </div>
           <div className="chatInput">
             <input ref={e => (this._input = e)} />
@@ -109,29 +111,29 @@ class Modal extends Component {
               </RaisedButton>
             </div>
           ) : (
-            <div className="modal-main">
-              <div className="chatBox">
-                You recieved one message from Vivek.R
+              <div className="modal-main">
+                <div className="chatBox">
+                  You recieved one message from Vivek.R
               </div>
-              <div className="chatBox" />
-              <div className="chatBox" />
-              <div className="chatBox" />
-              <RaisedButton
-                secondary={true}
-                onClick={handleClose}
-                id="closeBtn"
-                buttonStyle={{
-                  width: "20",
-                  position: "absolute",
-                  bottom: "10",
-                  right: "10",
-                  backgroundColor: "white"
-                }}
-              >
-                close
+                <div className="chatBox" />
+                <div className="chatBox" />
+                <div className="chatBox" />
+                <RaisedButton
+                  secondary={true}
+                  onClick={handleClose}
+                  id="closeBtn"
+                  buttonStyle={{
+                    width: "20",
+                    position: "absolute",
+                    bottom: "10",
+                    right: "10",
+                    backgroundColor: "white"
+                  }}
+                >
+                  close
               </RaisedButton>
-            </div>
-          )}
+              </div>
+            )}
         </MuiThemeProvider>
       </div>
     );

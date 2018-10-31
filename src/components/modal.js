@@ -121,7 +121,13 @@ class Modal extends Component {
             })}
           </div>
           <div className="chatInput">
-            <input ref={e => (this._input = e)} />
+            <input ref={e => (this._input = e)} onKeyDown={e => {
+              console.log(e.key);
+              if (e.key == 'Enter') {
+                e.preventDefault();
+                this.sendChat();
+              }
+            }} />
             <img
               src={sentLogo}
               height="40"
@@ -157,33 +163,35 @@ class Modal extends Component {
                   position: "absolute",
                   bottom: "10",
                   right: "10",
-                  backgroundColor: "white"
+                  backgroundColor: "white",
+                  borderRadius: "2em"
                 }}
               >
-                close
+                CLOSE
               </RaisedButton>
             </div>
           ) : (
-            <div className="modal-main">
-              {this.state.newMessages.map(msg => {
-                return <div className="chatBox">{msg.msg}</div>;
-              })}
-              <RaisedButton
-                secondary={true}
-                onClick={handleClose}
-                id="closeBtn"
-                buttonStyle={{
-                  width: "20",
-                  position: "absolute",
-                  bottom: "10",
-                  right: "10",
-                  backgroundColor: "white"
-                }}
-              >
-                close
+              <div className="modal-main">
+                {this.state.newMessages.map(msg => {
+                  return <div className="chatBox">{msg.msg}</div>;
+                })}
+                <RaisedButton
+                  secondary={true}
+                  onClick={handleClose}
+                  id="closeBtn"
+                  buttonStyle={{
+                    width: "20",
+                    position: "absolute",
+                    bottom: "10",
+                    right: "10",
+                    color: "white",
+                    borderRadius: "2em"
+                  }}
+                >
+                  CLOSE
               </RaisedButton>
-            </div>
-          )}
+              </div>
+            )}
         </MuiThemeProvider>
       </div>
     );

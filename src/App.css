@@ -356,7 +356,7 @@ footer {
 }
 
 .extraWhiteDiv {
-  min-height: 12vh;
+  height: 12vh;
   width: 100vw;
   background-color: white;
   font-size: 23px;
@@ -365,6 +365,7 @@ footer {
   align-items: center;
   text-align: center;
   color: #474949;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2), 0 4px 7px 0 rgba(0, 0, 0, 0.19);
 }
 
 #contactButton {

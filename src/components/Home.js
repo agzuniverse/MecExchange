@@ -10,8 +10,12 @@ import Auth from "./auth";
 class Home extends Component {
   search = () => {
     const query = document.getElementById("input").value;
-    this.props.updateSearchString(query);
-    this.props.history.push("/search");
+    if (query == "illuminati") {
+      window.open('https://www.illuminatiofficial.org/', '_blank');
+    } else {
+      this.props.updateSearchString(query);
+      this.props.history.push("/search");
+    }
   };
 
   navigateOnAuthChange = path => {

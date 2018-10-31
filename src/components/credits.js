@@ -1,5 +1,7 @@
 import React from "react";
 import "../css/credits.css";
+import "../App.css"
+import logo from '../img/if_1-06_2311228.png'
 import { FaEnvelope, FaGithub } from "react-icons/lib/fa";
 
 class Credits extends React.Component {
@@ -18,7 +20,7 @@ class Credits extends React.Component {
         email: "aswinmprabhu@gmail.com",
         githubID: "https://github.com/aswinmprabhu",
         avatar: "https://github.com/aswinmprabhu.png",
-        gitName: "aswin1999"
+        gitName: "aswinmprabhu"
       },
       {
         name: "Joyal A Johney",
@@ -68,6 +70,10 @@ class Credits extends React.Component {
           <div className="bg2" />
           <div className="credits-container">
             <center>{this.devs.map(dev => this.users(dev))}</center>
+          </div>
+          <div className="extraWhiteDiv">
+            Developers are invited to contribute to MecBooksWatch
+            <img src={logo} style={{ width: "4em" }} />
           </div>
         </div>
       </div>

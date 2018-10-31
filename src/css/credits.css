@@ -3,16 +3,17 @@
   -webkit-box-shadow: 3px 7px 30px rgb(66, 66, 66);
   background-color: rgba(227, 227, 227, 0.45);
   width: 60%;
-  height: 90%;
+  height: 70%;
   position: absolute;
   margin: auto;
-  top: 0px;
+  top: 0em;
   right: 0px;
   left: 0px;
   bottom: 0px;
   overflow: auto; 
-  overflow-y: hidden;
+  overflow-x: hidden;
   font-family: "BrandonGrotesque-Lit";
+  overflow-y: scroll;
 }
 
 .credits-card {
@@ -59,5 +60,9 @@
 @media(max-width: 768px) {
   .credits-container{
     overflow-y: scroll;
+  }
+
+  .extraWhiteDiv{
+    font-size: 20px;
   }
 }

@@ -849,6 +849,12 @@ footer {
   background-color: #5b7bd5;
   background-image: linear-gradient(#5b7bd5, #4864b1);
 }
+
+
+
+
+
+/* RESPONSIVE CODE */
 @media only screen and (max-width: 768px) {
   .backToButton {
     display: flex;
@@ -863,7 +869,7 @@ footer {
   }
   #centerTotal {
     height: 130vh;
-    width: 90%;
+    width: 100%;
   }
   /* .imageHolder {
     height: 45%;
@@ -877,7 +883,7 @@ footer {
     display: none;
   }
   .detailCard {
-    top: 47%;
+    top: 37em;
     width: 75%;
     height: 26em;
     position: absolute;
@@ -927,7 +933,7 @@ footer {
     width: 35%;
   }
   .imageHolder {
-    top: 5em;
+    top: 13em;
     width: 80%;
     height: 20em;
     left: 0;
@@ -958,7 +964,21 @@ footer {
   .Wrapper {
     height: 100vh;
   }
+
+  /* productDisplay page code */
+  #contactButton{
+    width: 50vw;
+  }
+  .modal-main{
+    width: 100%;
+  }
 }
+
+
+
+
+
+
 .userInfoDiv {
   text-align: center;
   color: white;
@@ -1120,4 +1140,16 @@ footer {
 }
 .chatBox:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.12), 0 2px 4px 0 rgba(0, 0, 0, 0.08);
+}
+
+
+
+ 
+@media only screen and (max-width: 768px){
+  .modal-main{
+    width: 90%;
+  }
+  #closeBtn{
+    font-size: 5px;
+  }
 }

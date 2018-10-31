@@ -15,6 +15,7 @@ class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      closeText: 'CLOSE',
       messages: [
         {
           msg:
@@ -45,9 +46,23 @@ class Modal extends Component {
   }
 
   componentDidMount() {
+    this.updateCloseButtonText();
+    window.addEventListener('resize', this.updateCloseButtonText);
     this.fetchChatsAsync(this.props.uid, this.props.sendToUid);
     if (!this.props.sendToUid) {
       this.fetchNewMessages();
+    }
+  }
+
+  updateCloseButtonText = () => {
+    if (window.innerWidth <= 768) {
+      this.setState({
+        closeText: 'X'
+      })
+    } else if (window.innerWidth > 768) {
+      this.setState({
+        closeText: 'CLOSE'
+      })
     }
   }
 
@@ -164,10 +179,11 @@ class Modal extends Component {
                   bottom: "10",
                   right: "10",
                   backgroundColor: "white",
-                  borderRadius: "2em"
+                  borderRadius: "2em",
+                  fontSize: "15px"
                 }}
               >
-                CLOSE
+                {this.state.closeText}
               </RaisedButton>
             </div>
           ) : (
@@ -188,8 +204,8 @@ class Modal extends Component {
                     borderRadius: "2em"
                   }}
                 >
-                  CLOSE
-              </RaisedButton>
+                  {this.state.closeText}
+                </RaisedButton>
               </div>
             )}
         </MuiThemeProvider>

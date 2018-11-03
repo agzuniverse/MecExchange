@@ -87,7 +87,7 @@ export function searchAll(query) {
   query = query.toLowerCase();
   return new Promise((resolve, reject) => {
     try {
-      if ((query = "")) {
+      if (query == "") {
         // db.collection("textbooks")
         //   .where("tags." + query, "==", true)
         //   .get()

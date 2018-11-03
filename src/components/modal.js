@@ -15,39 +15,15 @@ class Modal extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      closeText: 'CLOSE',
-      messages: [
-        {
-          msg:
-            "Hey,there I'm interested in purchasing your book, where can we meet?",
-          side: 0
-        },
-        {
-          msg:
-            "Yeah Sure, we can meet up near college library at 1pm tomorrow..",
-          side: 1
-        },
-        {
-          msg: "Sure man",
-          side: 0
-        },
-        {
-          msg: "Deal.",
-          side: 1
-        }
-      ],
-      newMessages: [
-        {
-          msg: "This is a placeholder",
-          sender: "Vivek R"
-        }
-      ]
+      closeText: "CLOSE",
+      messages: [],
+      newMessages: []
     };
   }
 
   componentDidMount() {
     this.updateCloseButtonText();
-    window.addEventListener('resize', this.updateCloseButtonText);
+    window.addEventListener("resize", this.updateCloseButtonText);
     this.fetchChatsAsync(this.props.uid, this.props.sendToUid);
     if (!this.props.sendToUid) {
       this.fetchNewMessages();
@@ -57,14 +33,14 @@ class Modal extends Component {
   updateCloseButtonText = () => {
     if (window.innerWidth <= 768) {
       this.setState({
-        closeText: 'X'
-      })
+        closeText: "X"
+      });
     } else if (window.innerWidth > 768) {
       this.setState({
-        closeText: 'CLOSE'
-      })
+        closeText: "CLOSE"
+      });
     }
-  }
+  };
 
   fetchChatsAsync = async (uid, sendToUid) => {
     let messages = await subscribeToChat(uid, sendToUid);
@@ -136,13 +112,16 @@ class Modal extends Component {
             })}
           </div>
           <div className="chatInput">
-            <input ref={e => (this._input = e)} onKeyDown={e => {
-              console.log(e.key);
-              if (e.key == 'Enter') {
-                e.preventDefault();
-                this.sendChat();
-              }
-            }} />
+            <input
+              ref={e => (this._input = e)}
+              onKeyDown={e => {
+                console.log(e.key);
+                if (e.key == "Enter") {
+                  e.preventDefault();
+                  this.sendChat();
+                }
+              }}
+            />
             <img
               src={sentLogo}
               height="40"
@@ -187,27 +166,27 @@ class Modal extends Component {
               </RaisedButton>
             </div>
           ) : (
-              <div className="modal-main">
-                {this.state.newMessages.map(msg => {
-                  return <div className="chatBox">{msg.msg}</div>;
-                })}
-                <RaisedButton
-                  secondary={true}
-                  onClick={handleClose}
-                  id="closeBtn"
-                  buttonStyle={{
-                    width: "20",
-                    position: "absolute",
-                    bottom: "10",
-                    right: "10",
-                    color: "white",
-                    borderRadius: "2em"
-                  }}
-                >
-                  {this.state.closeText}
-                </RaisedButton>
-              </div>
-            )}
+            <div className="modal-main">
+              {this.state.newMessages.map(msg => {
+                return <div className="chatBox">{msg.msg}</div>;
+              })}
+              <RaisedButton
+                secondary={true}
+                onClick={handleClose}
+                id="closeBtn"
+                buttonStyle={{
+                  width: "20",
+                  position: "absolute",
+                  bottom: "10",
+                  right: "10",
+                  color: "white",
+                  borderRadius: "2em"
+                }}
+              >
+                {this.state.closeText}
+              </RaisedButton>
+            </div>
+          )}
         </MuiThemeProvider>
       </div>
     );

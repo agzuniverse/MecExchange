@@ -73,7 +73,9 @@ class Credits extends React.Component {
           </div>
           <div className="extraWhiteDiv">
             Developers are invited to contribute to MecBooksWatch
-            <img src={logo} style={{ width: "4em" }} />
+            <a href="https://github.com/agzuniverse/MecBooksWatch/" target='_blank'>
+                <img src={logo} style={{ width: "4em" }} />
+            </a>
           </div>
         </div>
       </div>

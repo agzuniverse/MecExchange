@@ -28,12 +28,17 @@ func NewApp() *App {
 // Initialize initializes the app
 func (app *App) Initialize(apiID, apiKey, indexName string, opt option.ClientOption, router *mux.Router) {
 	app.logger = logrus.New()
+
 	app.Router = router
+
+	app.algoliaClient = algolia.NewClient()
 	app.algoliaClient.Initialize(apiID, apiKey, indexName)
+
 	app.firebaseApp, err = firebase.NewApp(context.Background(), nil, opt)
 	if err != nil {
 		app.logger.Fatalf("Error initializing firebase app: %v\n", err)
 	}
+
 	app.logger.Info("App initialized")
 }
 

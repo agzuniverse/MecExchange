@@ -1,15 +1,13 @@
-package handlers
+package app
 
 import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"http"
-	"ioutil"
 	"strconv"
 )
 
-func PostBookHandler(w http.ResponseWriter, r *http.Request) {
+func (app *App) PostBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
 	var reqdata PostReqData
 	b, _ := ioutil.ReadAll(r.Body)

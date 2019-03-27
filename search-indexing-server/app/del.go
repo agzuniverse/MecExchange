@@ -1,4 +1,4 @@
-package handlers
+package app
 
 import (
 	"context"
@@ -8,7 +8,7 @@ import (
 	"net/http"
 )
 
-func DeleteBookHandler(w http.ResponseWriter, r *http.Request) {
+func (app *App) DelBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
 	var reqdata DelReqData
 	b, _ := ioutil.ReadAll(r.Body)

@@ -8,14 +8,6 @@ This endpoint will also perform validation on the data and return with Internal 
 }
 ```
 
-# Search
-`GET https://secret-escarpment-95373.herokuapp.com/search`
-```
-{
-  "query":"query term"
-}
-```
-
 # Del book 
 `POST https://secret-escarpment-95373.herokuapp.com/deletebook`
 ```

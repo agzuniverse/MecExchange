@@ -23,5 +23,5 @@ func main() {
 
 	app.Initialize(apiID, apiKey, indexName, opt, r)
 
-	app.Run(8000)
+	app.Run(os.Getenv("PORT"))
 }

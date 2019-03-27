@@ -6,11 +6,13 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+
+	"github.com/agzuniverse/MecBooksWatch/search-indexing-server/datatypes"
 )
 
 func (app *App) DelBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
-	var reqdata DelReqData
+	var reqdata datatypes.DelReqData
 	b, _ := ioutil.ReadAll(r.Body)
 	if err := json.Unmarshal(b, &reqdata); err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -18,7 +20,7 @@ func (app *App) DelBook(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	fmt.Println(reqdata)
-	client, err := app.Auth(context.Background())
+	client, err := app.firebaseApp.Auth(context.Background())
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte("error getting Auth client: " + err.Error()))
@@ -31,7 +33,7 @@ func (app *App) DelBook(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("error verifying ID token: " + errr.Error()))
 		return
 	}
-	firestore, err := app.Firestore(context.Background())
+	firestore, err := app.firebaseApp.Firestore(context.Background())
 	_, err = firestore.Collection("textbooks").Doc(reqdata.ID).Delete(context.Background())
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)

@@ -9,7 +9,7 @@ import (
 
 func (app *App) PostBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
-	var reqdata PostReqData
+	var reqdata datatypes.PostReqData
 	b, _ := ioutil.ReadAll(r.Body)
 	fmt.Println(string(b))
 	if err := json.Unmarshal(b, &reqdata); err != nil {
@@ -17,7 +17,7 @@ func (app *App) PostBook(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(err.Error()))
 		return
 	}
-	client, err := app.Auth(context.Background())
+	client, err := app.firebaseApp.Auth(context.Background())
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte("error getting Auth client: " + err.Error()))
@@ -51,7 +51,7 @@ func (app *App) PostBook(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte("Phone number should contain 10 digits"))
 		return
 	}
-	firestore, err := app.Firestore(context.Background())
+	firestore, err := app.firebaseApp.Firestore(context.Background())
 	ref, _, err := firestore.Collection("textbooks").Add(context.Background(), reqdata.Data)
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -61,7 +61,7 @@ func (app *App) PostBook(w http.ResponseWriter, r *http.Request) {
 		textbookID := ref.ID
 
 		// Add book to algolia
-		index := algolia.algoliaClient.Index
+		index := app.algoliaClient.Index
 		index.AddObject({textbookID: reqdata.Data})
 
 		w.WriteHeader(http.StatusOK)

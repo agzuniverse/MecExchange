@@ -11,12 +11,12 @@ func (app *App) PostBook(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/plain")
 	var reqdata datatypes.PostReqData
 	b, _ := ioutil.ReadAll(r.Body)
-	fmt.Println(string(b))
 	if err := json.Unmarshal(b, &reqdata); err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
 		w.Write([]byte(err.Error()))
 		return
 	}
+	app.logger.Info(reqdata)
 	client, err := app.firebaseApp.Auth(context.Background())
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -63,8 +63,8 @@ func (app *App) PostBook(w http.ResponseWriter, r *http.Request) {
 		// Add book to algolia
 		app.algoliaClient.AddObject({textbookID: reqdata.Data})
 
+		app.logger.Info("Textbook " + textbookID + " added successfully")
 		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("Textbook added successfully"))
 	}
 	defer firestore.Close()
 }

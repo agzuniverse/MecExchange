@@ -2,7 +2,6 @@ package app
 
 import (
 	"context"
-	"log"
 	"net/http"
 
 	"firebase.google.com/go"
@@ -47,6 +46,6 @@ func (app *App) Run(addr string) {
 	// Set cors headers and start server
 	corshandler := cors.Default().Handler(r)
 	http.Handle("/", corshandler)
-	log.Fatal(http.ListenAndServe(":"+addr, nil))
+	app.logger.Fatal(http.ListenAndServe(":"+addr, nil))
 	app.logger.Info("Listening on port " + addr)
 }

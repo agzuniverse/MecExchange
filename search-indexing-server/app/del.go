@@ -3,7 +3,6 @@ package app
 import (
 	"context"
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"net/http"
 
@@ -19,7 +18,7 @@ func (app *App) DelBook(w http.ResponseWriter, r *http.Request) {
 		w.Write([]byte(err.Error()))
 		return
 	}
-	fmt.Println(reqdata)
+	app.logger.Info(reqdata)
 	client, err := app.firebaseApp.Auth(context.Background())
 	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
@@ -27,10 +26,10 @@ func (app *App) DelBook(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	idToken := reqdata.IDToken
-	_, errr := client.VerifyIDToken(context.Background(), idToken)
-	if errr != nil {
+	_, err = client.VerifyIDToken(context.Background(), idToken)
+	if err != nil {
 		w.WriteHeader(http.StatusInternalServerError)
-		w.Write([]byte("error verifying ID token: " + errr.Error()))
+		w.Write([]byte("error verifying ID token: " + err.Error()))
 		return
 	}
 	firestore, err := app.firebaseApp.Firestore(context.Background())
@@ -43,8 +42,8 @@ func (app *App) DelBook(w http.ResponseWriter, r *http.Request) {
 		// Delete book from algolia
 		app.algoliaClient.DeleteObject(reqdata.ID)
 
+		app.logger.Info("Textbook " + reqdata.ID + " deleted successfully")
 		w.WriteHeader(http.StatusOK)
-		w.Write([]byte("Textbook Deleted successfully"))
 	}
 	defer firestore.Close()
 

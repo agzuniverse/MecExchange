@@ -41,6 +41,8 @@ func (app *App) DelBook(w http.ResponseWriter, r *http.Request) {
 		return
 	} else {
 		// Delete book from algolia
+		app.algoliaClient.DeleteObject(reqdata.ID)
+
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte("Textbook Deleted successfully"))
 	}

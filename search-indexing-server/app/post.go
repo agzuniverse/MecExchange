@@ -61,8 +61,7 @@ func (app *App) PostBook(w http.ResponseWriter, r *http.Request) {
 		textbookID := ref.ID
 
 		// Add book to algolia
-		index := app.algoliaClient.Index
-		index.AddObject({textbookID: reqdata.Data})
+		app.algoliaClient.AddObject({textbookID: reqdata.Data})
 
 		w.WriteHeader(http.StatusOK)
 		w.Write([]byte("Textbook added successfully"))
